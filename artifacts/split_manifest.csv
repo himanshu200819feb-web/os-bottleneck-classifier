@@ -1,0 +1,9 @@
+partition,label,rows,runs
+train,CPU_Bound,450,6
+train,IO_Contention,525,7
+train,Memory_Pressure,450,6
+train,Normal,525,7
+test,CPU_Bound,150,2
+test,IO_Contention,75,1
+test,Memory_Pressure,150,2
+test,Normal,75,1

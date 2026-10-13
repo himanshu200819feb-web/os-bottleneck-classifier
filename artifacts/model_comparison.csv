@@ -1,0 +1,9 @@
+Model,Type,Best_Params,CV_Macro_F1,Accuracy,Precision,Recall,Macro_F1,Latency_ms
+Static_Rule_Baseline,Heuristic Baseline,"{'cpu_bound_user_pct': 75.0, 'io_contention_iowait_pct': 20.0, 'io_contention_write_kb_per_sec': 30000.0, 'memory_pressure_used_pct': 85.0, 'memory_pressure_swap_out_kb_per_sec': 1024.0}",,0.5511,0.5677,0.6633,0.5541,0.0843
+Logistic_Regression,Classical ML,"{'C': 10.0, 'max_iter': 1000, 'solver': 'lbfgs'}",0.9653,0.9978,0.9967,0.9983,0.9975,0.0044
+Random_Forest,Classical ML,"{'max_depth': 6, 'n_estimators': 200}",0.9993,1.0,1.0,1.0,1.0,0.1481
+XGBoost,Classical ML,"{'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 100}",0.9935,1.0,1.0,1.0,1.0,0.0071
+LightGBM,Classical ML,"{'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 100, 'num_leaves': 15}",0.9988,1.0,1.0,1.0,1.0,0.0145
+SVM_RBF,Classical ML,"{'C': 10.0, 'gamma': 'scale'}",0.9556,0.9956,0.9951,0.995,0.995,0.015
+MLP_Deep_Net,Deep Learning,"{'alpha': 0.0001, 'hidden_layer_sizes': [64, 32], 'learning_rate_init': 0.01}",0.9613,0.9978,0.9967,0.9983,0.9975,0.0046
+1D_CNN_Net (DL),Deep Learning,"{'epochs': 6, 'learning_rate': 0.002}",,0.9844,0.9777,0.985,0.981,0.0059
