@@ -242,7 +242,9 @@ streamlit run app.py
 - Deploy as a **Kubernetes sidecar** monitoring agent
 
 ---
+   ## 📄 Reference Paper
 
+   📥 [Read / Download the paper (PDF)](FINAL_PAPER.pdf)
 ## 📚 References
 
 1. Gregg, B. (2020). *Systems Performance: Enterprise and the Cloud* (2nd ed.). Addison-Wesley.
