@@ -252,12 +252,4 @@ streamlit run app.py
 5. Google DeepMind. (2024). *Gemini: A Family of Highly Capable Multimodal Models.*
 6. Pedregosa, F., et al. (2011). *Scikit-learn: Machine Learning in Python.* JMLR, 12, 2825-2830.
 
----
 
-## 👥 Authors
-
-- **Your Name** (add team members here)
-
-## 📄 License
-
-This project is licensed under the MIT License. Add a `LICENSE` file if you choose this.
