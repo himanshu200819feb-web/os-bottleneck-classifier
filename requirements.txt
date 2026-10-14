@@ -1,0 +1,14 @@
+   numpy
+   pandas
+   scikit-learn
+   xgboost
+   lightgbm
+   torch
+   streamlit
+   plotly
+   psutil
+   pydantic
+   PyYAML
+   joblib
+   python-dotenv
+   google-genai
