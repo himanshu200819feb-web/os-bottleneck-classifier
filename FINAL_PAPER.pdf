@@ -1,0 +1,469 @@
+%PDF-1.3
+%âãÏÓ
+1 0 obj
+<<
+/Type /Catalog
+/PageMode /UseAttachments
+/Pages 2 0 R
+/AF [ 21 0 R ]
+/Names <<
+/EmbeddedFiles <<
+/Names [ (Content Credentials) 21 0 R ]
+>>
+>>
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 4
+/Kids [ 3 0 R 10 0 R 15 0 R 19 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Contents 4 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Parent 2 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/helv 9 0 R
+>>
+>>
+/Rotate 0
+/Trans <<
+>>
+/Annots [ ]
+>>
+endobj
+4 0 obj
+<<
+/Length 6472
+>>
+stream
+q q .843137 .878431 .917647 RG 62.3622 39.68504 m 532.9134 39.68504 l S .321569 .392157 .478431 rg BT 9.6 TL/F1 8 Tf 1 0 0 1 62.3622 24.09449 Tm T* ET BT 1 0 0 1 528.4654 24.09449 Tm T* ET Q q 1 0 0 1 68.3622 0 cm .062745 .129412 .227451 rg BT /F2 24 Tf 1 0 0 1 8.536 730 Tm (OS Analytics and Bottleneck Classifier)Tj ET Q q 1 0 0 1 68.3622 0 cm .321569 .392157 .478431 rg BT /F1 11.5 Tf 14.5 TL 1 0 0 1 42.671 706 Tm (A Modular Telemetry-Driven Framework for Operating System Bottleneck)Tj 1 0 0 1 81.644 691.5 Tm (Classification and LLM-Assisted Root-Cause Remediation)Tj ET Q q 1 0 0 1 68.3622 656.0236 cm .062745 .129412 .227451 rg BT 13 TL/F2 9.4 Tf 1 0 0 1 68.55439 3.6 Tm <48696d616e73687520285341502049443a20353930303234383131292020207f20202053616b7368616d204d6568746120285341502049443a2035393030323536323829>Tj T* ET Q q 1 0 0 1 68.3622 640.0236 cm .062745 .129412 .227451 rg BT 13 TL/F2 9.4 Tf 1 0 0 1 64.37609 3.6 Tm <4c617669736820477570746120285341502049443a20353930303236393331292020207f2020205069797573682053696e64687520285341502049443a2035393030323830383029>Tj T* ET Q q 1 0 0 1 68.3622 626.0236 cm .321569 .392157 .478431 rg BT 11 TL/F3 8.5 Tf 1 0 0 1 33.53334 2.5 Tm (B.Tech. Computer Science and Engineering | University of Petroleum and Energy Studies \(UPES\), India)Tj T* ET Q q 1 0 0 1 68.3622 612.9236 cm .101961 .65098 .717647 RG 1 J 1.1 w 0 0 m 458.5512 0 l S Q q 1 0 0 1 68.3622 591.9236 cm .062745 .129412 .227451 rg BT 13 TL/F2 10.5 Tf 1 0 0 1 0 2.5 Tm (Abstract)Tj T* ET Q q 1 0 0 1 68.3622 440.7236 cm .133333 .168627 .211765 rg BT 2.146144 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 136.1 Tm (Operating-system performance degradation often emerges from interactions among CPU scheduling, memory pressure,)Tj T* 2.330959 Tw (storage I/O and other resource domains. Conventional threshold-based monitoring can produce noisy alerts or fail to)Tj T* 1.469806 Tw (distinguish the active bottleneck when several counters change together. This paper presents a modular telemetry-driven)Tj T* 2.281656 Tw (framework that samples operating-system counters, classifies four operational states, and connects the prediction to a)Tj T* 2.237144 Tw (structured root-cause analysis \(RCA\) assistant. The packaged implementation includes a workload-generation pipeline,)Tj T* -.061735 Tw (run-grouped preprocessing, a model benchmark suite, a Streamlit dashboard supporting live telemetry and CSV playback, and)Tj T* .865252 Tw (a Gemini-oriented diagnosis agent with an offline heuristic fallback. The included raw dataset contains 2,400 observations)Tj T* .347906 Tw (across 32 runs, balanced across Normal, CPU_Bound, Memory_Pressure and IO_Contention. The saved split contains 1,950)Tj T* 2.236699 Tw (training rows from 26 runs and 450 test rows from six disjoint runs. In the packaged benchmark artifact, XGBoost,)Tj T* .271199 Tw (LightGBM and Random Forest each report 100% held-out test accuracy and a Macro F1 of 1.0000; XGBoost has a recorded)Tj T* 1.113355 Tw (mean inference latency of 0.0071 ms. These results are promising within the controlled dataset, but they do not establish)Tj T* 0 Tw (production generalization. Further validation on independent hardware and real multi-tenant workloads is required.)Tj T* ET Q q 1 0 0 1 68.3622 414.7236 cm .321569 .392157 .478431 rg BT 11 TL/F2 8.5 Tf 1 0 0 1 0 13.5 Tm (Index Terms:)Tj/F1 8.5 Tf ( Operating systems, performance telemetry, bottleneck classification, machine learning, XGBoost, grouped)Tj T* (validation, root-cause analysis, AIOps, large language models.)Tj T* ET Q q 1 0 0 1 68.3622 391.7236 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (I. INTRODUCTION)Tj T* ET Q q 1 0 0 1 68.3622 325.2236 cm .133333 .168627 .211765 rg BT .692406 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 51.4 Tm (Modern computing nodes execute diverse workloads that compete for processor time, physical memory, storage bandwidth)Tj T* .848872 Tw (and network capacity. The resulting performance symptoms are not always isolated. For example, sustained storage writes)Tj T* .318628 Tw (may trigger dirty-page writeback, increase kernel activity and leave processes waiting for I/O. A monitor that considers only)Tj T* .044178 Tw (one counter can misinterpret this coupled behavior. Tools such as top, vmstat, sar and iostat expose valuable telemetry, yet an)Tj T* 0 Tw (operator must still interpret signals across subsystems and decide what to investigate next.)Tj T* ET Q q 1 0 0 1 68.3622 270.8236 cm .133333 .168627 .211765 rg BT 1.700758 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 39.3 Tm (The project addresses this gap with a two-tier design. A local machine-learning classifier maps numeric telemetry to a)Tj T* .749005 Tw (bottleneck class with low inference cost. A separate diagnosis component uses the predicted class and telemetry context to)Tj T* 2.419144 Tw (produce a structured explanation, investigation commands and remediation suggestions. Separating classification from)Tj T* 0 Tw (language-model assistance keeps the fast prediction path distinct from the slower, network-dependent explanation path.)Tj T* ET Q q 1 0 0 1 68.3622 253.8236 cm .137255 .407843 .768627 rg BT 12 TL/F2 10 Tf 1 0 0 1 0 2 Tm (A. Problem Statement)Tj T* ET Q q 1 0 0 1 68.3622 211.5236 cm .133333 .168627 .211765 rg BT .257605 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 27.2 Tm (The objective is to build a reproducible and non-intrusive pipeline that samples OS performance counters at approximately 1)Tj T* .223468 Tw (Hz, classifies non-linear resource bottleneck regimes without row-level temporal leakage, and provides actionable root-cause)Tj T* 0 Tw (guidance. The four target classes are Normal, CPU_Bound, Memory_Pressure and IO_Contention.)Tj T* ET Q q 1 0 0 1 68.3622 194.5236 cm .137255 .407843 .768627 rg BT 12 TL/F2 10 Tf 1 0 0 1 0 2 Tm (B. Contributions)Tj T* ET Q q 1 0 0 1 68.3622 152.2236 cm .133333 .168627 .211765 rg BT .276785 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 27.2 Tm (The implementation combines \(1\) configurable workload generation and telemetry capture, \(2\) a run-aware holdout split and)Tj T* .287581 Tw (grouped cross-validation for model evaluation, \(3\) comparison of a static heuristic with classical ML and neural models, and)Tj T* 0 Tw (\(4\) an interactive dashboard connected to an LLM-assisted RCA component with a deterministic local fallback.)Tj T* ET Q Q
+
+q
+48 18.70245 499.27558 15.992 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+
+q
+BT
+1 0 0 1 293.6378 22 Tm
+/helv 9 Tf .35 .38 .42 RG .35 .38 .42 rg [<31>]TJ
+ET
+Q
+
+
+endstream
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Oblique
+/Encoding /WinAnsiEncoding
+/Name /F3
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+/Name /F4
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+>>
+endobj
+10 0 obj
+<<
+/Type /Page
+/Contents [ 11 0 R 12 0 R 13 0 R ]
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Parent 2 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F4 8 0 R
+/F5 14 0 R
+/F3 7 0 R
+/helv 9 0 R
+>>
+>>
+/Rotate 0
+/Trans <<
+>>
+/Annots [ ]
+>>
+endobj
+11 0 obj
+<<
+/Filter /FlateDecode
+/Length 3859
+>>
+stream
+xœµZkwÜ6’ı+ø´Ç›mÑ|?f>É²ìèD²<ROf²_rĞ$º1ItøPGùõ{ A²íHÚhŸu£Áb¡êŞª
+¿²_™“†$ø›Ğ'æd^‡	»ûÈœˆYì;Aìû,É2'H\U,
+|Ì
+Âi¬d÷Ì	|/Š3üÍğC#°Ù±wk–±õõÛK t½esñÏ³ÒS7s|ÈdëŠ½¹½gçŸÎ¯Z_]Ü³ÿbïn×ëëËO—?°‹ëóûû«W—wÿ½ş…­¿c—k+"Èœ8Üp® #I'ôH¿¥…:n†ia„ã™qRä§NGá7fıv´²ÒÁ^QêD~³¼bûI1Çó³Ğó™ãÓ×Ñ4^¤uò-RÊe¾¶ÆÕ•Ãî.¯Ï×—ïÙ¿nï~€mŞ³›ÛõÕçë«ÛO“!¾¥EEN2jáôşÆ)ô\Z8^âGÌsdïxZ¥ó–:¥‰“hµÖ{ÁúEä+TÛJÑ°]£úCËÄo²íd½cü€<ß‹–ÉºS¬Û7B°Æ
+¶å•,¥höA6m·bmÇ;™³¦/kÛNT-kû|ÏxË>ñT-ãuÁş—o6ò·aÕX›‘'ìoë[±íK¶USÑ@ ªyÉ*UËN5¤Ò¦‡ºâ  IÕZ¡v¯Ê¢ÅGŞ±Š?²i(»j÷¢f˜¡ú&‡Rraz)wƒŞ;hã;Q”ùa Õ)d›÷m+
+¶Ğ‹hDÉ;|?ªæËßñ>HìØ °†ÜÊ¶*«UÇ,²)e»7º	‰GšZô˜*"»FËÌ+ÛÑ0±ë&‘öæYJQ‰ºÓæpØ½ÈU]¬X'+qÖŠN€eUÅËG˜¦ƒª™L~wus®-ÕªR‹`ŒÒ±œ×L,·¬¯û¶‡­7bÏ¤jV£&QìG~¤5!ã/ßDÒx©jECZv-rÑ¶¼‘˜Ä[2:ã¬¼†ûÈ¹ˆEîÁÄ/¬äQ’'dƒ%BÎJÁ›z	?«‹›ÆQªu!Œ˜±RíZ½˜FüÚK8«¿udhRDÂê	¤^ÛK,‚•r·ï‚şÏZÓ¼R©ƒÃ®¯oÎ6œ<?Ç -­;«ŒçGAšìXs(ymœóß€|³Ò˜…ïeÛt„Á¢ÎµnğÆAÕ­`0¬T'ğŠn9<Uª*ä%)±%¦ÒSX°Ún¡øˆ_×†—å†ç_œg"‹8á‹"‹çDYàùÉs¡ÅOß†–BhÏËzöÔ`Ÿ(
+Nô%oà#u×<jÏ´{¬©„ÑÅvKÀzÀÏæ‘urŒSmJ2æq‘y½ëùNÀV…(™eÎ™ãú¾çÃ°¢y€PBXCÀ ’ïj‡2ø—X	ÕjMéÔ°†Î7‘ËVS0mi%˜Ì›|/‰}#LÄJƒŒ“Yé/œ#V|hä„Ş=oM0á"²h jÅÉb¥¬¤á<…
+frJõHÑàÿF™;ù÷uù	ìş§ûõå{yõñ“É`—ëïoßß^ß~üéE’Ğ¥ HèRqøo 7(âŠ¸ßRäö· !¬y³» oÙñZ„Yè¤/K¤AdIøÚã€*¡í;3@À€l+w½Ák€ÎVhĞÈE´¦Ğ=Šx¹b&5=|®Í¨JRÊ¬€bxÁ££40q‘†ù†ySõ-(WH”êX›×SBŠãM!
+	¡L^öø0ÙÅı™ş*t]Ö¨£ÉŞàU®Ê¾ª¡œ™eØœ…ê*ğµp/xÇW3oY„¤ã~k^¬97eg­•&Ì4¹øüO²LNypG€®ŞŞb‰Ğ1Q"|Œª„©ëzÙhé¡šÈUÊß±Ê’ªRá—ÕÎZ˜g]ç4ı¡#vÓÃ•¨ÖÍŒc¸,M˜DùsäûS×ğ-ÂÇ˜C7rãt,,¾ âóâíeŠ Fõ»ı¡G¥Ûôíãl©cæh]ßâu‹ø0{Ü“G‹áPò¢Eô±¾8+åÁê¾BõczOKmM½¤c-FÖoUO5 úŠÊ33±Ğ×¢tĞ“• ¶ÌİüL|
+#ª¯Ÿ$dâxidé‚‘Ñùç“v2^?#î(x t€n	euŞÃR•ÃôSVø€ìçwXuñ„´\U°>ì€b¥@ŒOdS°˜bªv±Šùn4¦~şam¯+Ñ?zÍİù;Ó1ÈIœR% ø•æW·?_¦ë!Nü‘ØQ‹Òè¤°>TO6¬ ×(nQ:÷sqÍ]üç#ÿ;‡]ÖÅY§Îğ‡}–1«zşàåØÍ:vÂúåÙ÷²ˆ>àoêb—K/bûŒ¢ïÄIâ%Ø’& ^˜úÙ4V²$t‚(gcI<Î
+i¯™ÍGâaN>¥È	AhYv,p|D‹d’FÃ,«ƒÉ¡¤ıR"Å$išN#î$Í^–“]c»
+wRvxŞ.gfœíÙ»ïr£Kkˆ¤€Ùbøô;ÙíwÏÔ!´ß`,¹M®tİ ¢¤›$Ydş…xHA|ÂÁl·G<Õ9öÏ~‚m~âã˜¦§G>õĞEŸ7Äs}¼+‰ÁåÀ‡M=SÜ?Ö„f\Ïªèáe1G.‚˜“X€%	%î%Rà¤ªÂYæ$_Ø1:ú€AÓ,F„œÏ¡&‹b:Òÿó3]'	]/6ç=ŠÀÖ	*d ,‹ã97<>F¦1Xw˜eáfG&nØ±7¦±ÍVº…ºÕaÆ«ëŒ"©ïàƒ;Ã‹N˜7L”±c3æLcãŠ¬t»ê¯íe™ôMXÀúVì_Æ'Ïõä_É'[\“PúA¼dª×rÉ(½(\pÉcßÿnË’—PÉ‹R|²9ì½Ø€³`I%šé†a¼˜Ikò–DzjŞëiäÅñ	e*ÔÖ€Q.RÅbÉvÌÒaÖºid¢‘›Ñhn¥[2Xf4²ºÎ3MŒ˜’F³ìãÅş)Iíˆ7“åŸP¾œÙÀ0JŸ‚ÇWöz>!Y¹§<¢ù"Bx– 1"}¦òJ—Oì¾Í%¥Sï$;Ñé+ªë{ì»×²*u/Ãì9«—~–Ø×Œç€/!–dNª·ñüB©®[‹fz Ãb& `kº¤ÖÓ3_O.?LNˆT1Ø€±ü9¹/qRp|ÙÍ¬ŠÓÈD.;6#×46ÂßJ·±:ÌÈeu‘Ë‹ Hf´ƒSêÚo&+8	ålÌ†‹QúR¾²×H®0
+3×'7hS‡d~+÷„\Á¬æ¥àÑ“usÍnè¼¯}%?Hzäz¤gæ(‘NˆÅK¸A[×s£9ŸÔ²%7ßuZı|&ğ¡Œ\rãé™¯çFà§'<€ü,†\XaÎ,%Á3”„”¨õ¬IÓÈÄ;6ãÆ4f¹1JŸ¸1ê0ã†ÕuÆ ï
+ÒÙP uNˆgG¼™¨ğ„ÆålÌ’}>Åƒ¯¬õlõf¥şuY'@üÍÂ%1î»Fğ
+‰ƒıóê•ÜC”zr\ËÁŞêÓ%d·’?¾„ !êLÔQéÌ¡‹}­¼.T;aš-©ÄÔ\äé™¯'Hèf'd€ÎHó)öœ !eXwV˜…€›™dùaGfüÇæü°c#„GáåVƒùÖÔtFTA@Ìt£òM#ŞLVtBår66~>
+§Ö	’0DÆ°` %˜ŞJıëøúX|
+ /rwqÎÎw¢~mi"êÇ¡/èñQT²– ÈØ}{æpÊs§Ã©Ü»€‘œt¹kÂÒb}dcÈ>Èƒ/ì{¹ÛŸ•âyŒÎß‡ƒì±	·-Õ‘zI‹æõIùiÍ}¬:5º‚J<‰ÓÿW…TnE7ï§ ¬uúşÁØ3ít^ŸŞëv‰i æª¡K ãÖaSN–¼”…4ôˆf[¶gày€¹>çÌUı š®z²ÇåÕS;À4,Iµ-|ß‰ájºWR¿v…·UêAĞq­›Ç“@}Ö>v‹D±bpÊÛ]ÆÎ5õL3ÅôJôBuË ¥ş‚¬ßvÔÄ§ˆ¬¯˜ãı­˜N¥UMæÚ@ò¾âÍêB·4ö¢oè’G¾b×j§?±;±£ãe``Åîğ2UÙ–*àı%sw`ÅşıñRôáš:WßİPŸ‚İ½ûpöE45àwÿ£º¹ş<ô±¼÷ìâÓ'èI:R¡éä–çi.tdr+~¡¾/c“ÚÔÛuÓ,1Váß|¸AK'‚s"8ã]'ªC§½F-™Æä06ŠS¯Éô4Füİt2²¥ËĞs§ë,Ãm Û¥—ËCñ¡TŠç¨ƒòF?~á°kÁ¿`­gçGZÃ%!ïdK÷-f«——ºèn–={(B2¶ìmiãÊzpzäÃnsŞ`‰åƒ,¨OEã¶–SƒŞ<[ñZn	Õ#¡f-¢-Û[ùÓØ§‘¡ÑY«‘8>*rÓ¾¥/ıšRw³:
+[‡E| ê}E y'0j	ø¶EĞÔ{õ>¨²0¯ßRy´Õ‘¨7‚Ø;EˆåñVô½‚\ßhÒ;A·ÈÅ²xSÈß§Œ¤¦Òğµ±ôU¡áéÃĞi©óDZ½úJ‚dµ@şv‡›M´rn–µZ¸g+;İİÑ½E}Á\>PFî^”ÅuíÂÓÃ]P¨Ï…¹ÌĞP#Sß÷àÅ/<Ÿ²®¡ŒÚĞ½ŒAü¶QÕtbÜéLDKŞ€›“otUèKjÏÎsQf¼,_¥^›»h/¾åbP+ÍÅ'r‘È;º¶ÂKºÁ¡±FËĞ'™ŒçjÛ¡óı7BT
+ q1şAQâ!ŒSC™¼>¡ Şc¯ÏÅŞĞåÖĞÒv¡ËXÁ£šH2İ)@®:Nwf˜·Ê"w’¿ğ	éW’2ÿÅaç”Jû	`»q®ÅIkû{Õƒ&aê@Ÿ¾DG¬ÑN¯P1Qnİ@Eµ]$úI=~Y8ûÿ7MgÄ
+endstream
+endobj
+12 0 obj
+<<
+/Filter /FlateDecode
+/Length 59
+>>
+stream
+xœã*ä2±P0´Ğ37021U0±´Ô3275
+™êYZ)¥rep*€`»„Q”®àÄÈ [ä´
+endstream
+endobj
+13 0 obj
+<<
+/Filter /FlateDecode
+/Length 78
+>>
+stream
+xÚã*är
+á2T0 BC#Kc=3cs##…\.ıŒÔœ2K…4=cS ¶PĞ31RrGá¥+DÛÙÅ†xq¹†pr ãåá
+endstream
+endobj
+14 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Times-Bold
+/Encoding /WinAnsiEncoding
+/Name /F5
+>>
+endobj
+15 0 obj
+<<
+/Type /Page
+/Contents [ 16 0 R 12 0 R 17 0 R ]
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Parent 2 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F4 8 0 R
+/F5 14 0 R
+/F6 18 0 R
+/F3 7 0 R
+/helv 9 0 R
+>>
+>>
+/Rotate 0
+/Trans <<
+>>
+/Annots [ ]
+>>
+endobj
+16 0 obj
+<<
+/Filter /FlateDecode
+/Length 3275
+>>
+stream
+xœ½[ks¤6ı+ú2[Î–o*ŸlgÖ¿bw¦²[©JÑ îf‡†?şı+M{ŒéIˆ'•rƒ„ÎÕÕÑ}ÀÕìfÍm}úÅŒûã³»ÏÌpÙ#ó,Ãö,‹ùahØ¾ÉÙš¹¶…^¶³½—±{fØw½CüÀ€°\²ÓÙìòøg>-g&şãİèÆd³5;¸¹g'×'—ÿ™]œİ³°Ó›Ùìòüúüì'vvyrñéâüî‡ÙÿØìŸì|Öa‡†¸¦Ó°»G’†×È¼&…åfè8!I¡Ç3m'×
+ÇsWzı=vc¾<n¸–ï±xÍ(Ør]¨Ä$0Ã÷ÏòÕpKÉd1nö…2™¥´ñÑ`W¢*ÓXnçü* é|HÿğWÇªº AÒã‰Ù#°®Ğè†ïÂCyz=Nâ¸.£ø™¥’U+Á¸¨Ò"gÅ‚ÅEYŠ¸ÊYœER¦‹T$¬²bÅ\Šò!¢Sˆâ²`ôM%î²µºë(ËX”'M,Mô Êh)ª™1'nA÷$ñB”›"OÒ|©Q2ñ 2¶Öjb²À³QÅD¯tˆ™£m^C2&ş¨ùl°‹|!J‘Ç‚eQ…¿j‚¥Øe…I¤9[§Y–J‡É6¢lÄ1<î˜¡ÒßAo–,tU”úYRÔºHDvëMT¦’z”Uº€òvÙ >DY™¢R0‘?¤e‘¯E^%b#ò¿”jäª¨³„Í¡“RD$\Ô’ÁTR¬E$ëRĞ£ËS¬ü&Š¿B‘	+k(</*Vç)”+£Œ-ë¨ŒòJi¼M+/p¶´2A&<æVè€¶†E—íçnËcû5_|Æ¯n/Ï¯Î¯g'³‹›ë`o‡Ï~ì¾XT¤ã3¬E‘“šŞwmßğÇgG,Ïp˜Y}‚qüñÏ‘ØÔUÿé®f ó³íjÁR×°éj„Íø¡K?ğ70aKõÃß	¾ß³ëõNoì¸/'ğÊØõ…èí{ºcædûÌe„õÊŠu«ôú"F„ÁdxwE&Ú=ã¶Eùu€ ,t0ÈŞ˜ÎæRä0s•ø=‰ªHŠÊØ<Ì6pÇa¹Á;²
+oˆÀ9İ!M+{"M8+"e*¤²9q‘e0ì’ÁW"d\ŸY-Éènd]¥YÓ-_¤K¸‡9Txvû»XèIÇ7;fªE´9³&P.üÌ¦,b!å¸Z'‚üei¢tÙiëÅz¡Õ£eYÔre”æÇÊEnÈ(yëÃ[H¸¢¹ÈôHxBübr“¥f.ğÔ îœù¯ODÉ7®¶‰Ğfu.ä± 7¨4¥£ÚyjE(‘tìÁ?²³ëë™x"7-;ŸOİÔ&™Í¿ÇjŠm6ãjšë¶,R¢éà¢€5q"…/1YqØLvvè!Ëàè{û–ÔsvÿåhSƒè!²g‰`gU«a=q{K—eëß†ä{˜¸=ÅĞ´(ØÓÂÖi–P`VÖqUSp–¤Ñ2/dëiòÔ’öÅ´‹,Í[‰1[•ÆlhqPŠ=®„öŸÅ:ÍSp5¥-İÅê<zˆÒŒâÍ¾‘jqöoüÿ?8H¹Ú¨b½õ¸úe14Á^ƒÙ»iöºõ:£Ã‘~£º¡Şo	xs[…½u­›TÑkR×ºIE½&uMMÜâzİIÈîb+äÏ¯ÇfÜÛÆf%0<5ØÇ7uµ©u¸}³!Ï³+t-D5@ÛV Ç5)&Ü'ór¸xÁXæår(@YGmKW¯Ä:Â¦³šlDÖS¦üLY ¸#pø›>^åÊ‚¶ÛüÀ“TéRç)HHàLÍ{Ê ±ÓĞòöÈ0-¤Š:ï:iğO—4û‡¥k8[rU §ä†´U
+­V¹Š6	K
+ô¤d¤KAšl“yf²^.!ªHZa¶Û‹¤±y ó.‰ua‹¢lC6¹Â®5Ø]o:MÚ1J®‚¨R<¤âÃÏŸÕnWKaæº‡xq]©9&’UÊ·
+#Ai,ÃvBî†:']E92Ö¯¢Ìa„ÍU0ÂĞ{„àoZĞJ1 ÅUÀAƒ£n-Ngg:}6†$ÍèQÒ2Rn±ÀÉİÑ™0``“0?8ÈPÑÃ¡9¨ò‡*%OÕÜç
+QGåXŠ#íFt‚-_°oˆlM‘"5<ÿõöüîBå†—ìîüş—ËÙıÛèvèƒ{m»Àâém;îÒÚv*š½`*ŠLê¸ñ»İû….É‡€ÇŸ¼v¤ƒ.ô8Vjü}›ù±|P;Ø</áÒÕÈ²Ş ÆÃ˜ÿ½¸Õ¤¨”ØôÚcyïuˆ^ï.»Ÿc¿­ÖQùµ}ÔÆ~Œô6+E›jÀõÁ§Qü‰EÚÄé}ªBl…‘õ¶g«ñ=^÷Ù/ı2·MØxÏoÂ¿“ÓËsva°Û“³ŸN>ŸdW7Ï/ÙéùõÙ¿®Nî~Ú
+–íb÷I×‹’d7A,Ù.3ñÏ~%]×™ı`×7“jÎMJ˜÷ÁQùäŸ„ñÃİ'ışû„o^ö|ûı€ÿRC(*ÖİÉ^ºr¿QÀ7ïl,Çw%ƒ¹şíÌ0ÔtÓñ­É°Î¾to59fèL†Ø¾ª}Î²ƒÃ¥OwÛ¾ÏÀLÅnñîÔëâ×ÁlĞ/àA8ØŒRô·×O¹ ²~Sa¶¯…;XËß~ …u±'É*ï„ Á¹«ájNág(ÛA_ŸŒm‰‰LÃuùÀúm7Ät`ïí†ÉÀ<Ï¶ÇvÃ„jtF·Ád`&‚‰!ú‡ş$ï%.‹¥NğïÄï°ëÈ?°i„;0»şÓa…~0Âş	±¼1òOˆŒqJº#ÔŸË4gˆùÁoªïkö	IŒúÂÒ2~@Ò_8Æ÷I¸A¡óÛÿ~¤–ë;RÇô¿©åùDŒàN0äL˜çMòEæ×Ï§E1Êğ‰Àˆãö€è8>Ö^,¬–çï€Õ1ı=°Z®OÆÓôÙîš“|H»L—«êóéÕİ'BSîw ¬èè>Ö^t¬–îï€ÕÑı=°ZºOÆ“;Cá³iR×/WìîôÓÛ'Û]×aûtXáVÇö)±†Rã–íSb±ı=°Z¶O†…Ñ†°&É
+®.oÙG!6ìZŒÅ3!RÊÇböé°ÆsÔ	±FsÔ	±FsÔ)u8–£N†…uÀDÁ^Lá®T•±ıvğñrèMèÖÎ¿ËÉ)P°NÁP~¿5ïÓ ù£o"§šÑ¸aŸˆZõ‰øí†ß_»c»ºxG}c\o?ié½â¶áEñN×­×a`˜®@¨kìWö¨ıFuC7ªÏ½6u­›ü°ß€«İ¢Ÿ¶¡_ôãïJ¡®u“úØkR×|î®êZÕ™–ŞÏª¨½ØÎ›{Ş‰ª½½Ø¶[×ˆÚ»‹^»ïkŞ«ööbÛn[¦+µw½v(K±Lµ·Ûö×ë•,ª£›¨ıNÈ:«$» Â¿M)*õÿíã«bïU'q…ù&¦ô=õI]BW}Ğ–ÕqÓü Ï‚Dí	’ƒT¾³ó2ò5ïlT¿6£5º»«H²¨=„Á{*…(E\”	DhÏq¦“n¶V7ú‡QÚBï³û/È?v`L%™Îbèy’eGL¶óú
+¿ ©cÒ`¯|UĞ5¬€¤0®©™
+CÃ>tŠ9d«4ÓÅ ”Ú´*D7×û KB§Ø5†ã|èNÈpğ]—¸´ƒêÇ¤şÈ·­gœ7_úº‘\×àüÃî"EÛeRÊ¤?TG–¤qDÅMºf‹Äm+À_”#U+Ì~Udúä–zÍd=‡0y¥‹ª‹R
+]’DÃ¨_‘´e¿ªà…Î‘¾UôHmJh¡å»{°Ü2ÜÀ²<¾÷ù'h’Ê˜¿-*£Êš¹Ğ¸´Õ™&¨H—Ag4k¡vC”a²x¨="+"êåiÊÿ©ÔG>çĞ-V e—é¡®v=€bÒ¹ªäú¶E=u€áê„Õì'Ûb~…'dSQ¤4	$ê©ê©‹ãÈô‰–µ;oD ÈÎP¶.ª“øñÜñÌ2ƒ°9‰%Véœ*ÓÓ§ª<Ä>-uÜ&IÍ+Ü¥Ú6*‚§ÊvlÆTİT•sÄ§¦v'©’5EÂõÌ*jIìÈ¥.•ßaÙ\TBäÛ™$IÚ”nŠ'¬ı ™Tœ‘¨’)UíWô
+=1BŠÍƒX×u”ì¿ıü)ÁÊ-
+endstream
+endobj
+17 0 obj
+<<
+/Filter /FlateDecode
+/Length 78
+>>
+stream
+xÚã*är
+á2T0 BC#Kc=3cs##…\.ıŒÔœ2K…4=cS ¶PĞ31RrGá¥+DÛÛÅ†xq¹†pr ãğâ
+endstream
+endobj
+18 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Times-Italic
+/Encoding /WinAnsiEncoding
+/Name /F6
+>>
+endobj
+19 0 obj
+<<
+/Type /Page
+/Contents 23 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Parent 2 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/F6 18 0 R
+/helv 9 0 R
+>>
+>>
+/Rotate 0
+/Trans <<
+>>
+/Annots [ ]
+>>
+endobj
+20 0 obj
+<<
+/Length 6638
+>>
+stream
+q q .843137 .878431 .917647 RG .5 w 62.3622 799.3701 m 532.9134 799.3701 l S .321569 .392157 .478431 rg BT 9 TL/F1 7.5 Tf 1 0 0 1 62.3622 809.2913 Tm (OS ANALYTICS & BOTTLENECK CLASSIFIER)Tj T* ET 62.3622 39.68504 m 532.9134 39.68504 l S BT 9.6 TL/F1 8 Tf 1 0 0 1 62.3622 24.09449 Tm T* ET BT 1 0 0 1 528.4654 24.09449 Tm T* ET Q q 1 0 0 1 68.3622 761.5276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (VI. DISCUSSION)Tj T* ET Q q 1 0 0 1 68.3622 707.1276 cm .133333 .168627 .211765 rg BT 2.540634 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 39.3 Tm (The results support the project's design choice to keep numeric classification local and use the language model for)Tj T* .173527 Tw (explanation. The classical tree ensembles are competitive on the controlled tabular dataset, while the 1D CNN does not show)Tj T* 1.002638 Tw (a benefit in the reported test metrics. The static heuristic illustrates how fixed rules can underperform when the workload)Tj T* 0 Tw (signatures are more complex than the small set of manually selected thresholds.)Tj T* ET Q q 1 0 0 1 68.3622 640.6276 cm .133333 .168627 .211765 rg BT .817605 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 51.4 Tm (There are important validity limits. First, the sample population is a controlled synthetic dataset rather than a collection of)Tj T* .860468 Tw (independent production incidents. Second, six held-out runs provide limited evidence about variation across environments.)Tj T* .142105 Tw (Third, inference latency depends on hardware, software versions, batch shape and measurement method. Fourth, LLM output)Tj T* 1.217606 Tw (quality, API availability and remediation safety require separate evaluation from classifier accuracy. Finally, the reported)Tj T* 0 Tw (near-perfect test results should be replicated with newly generated runs and, ideally, real telemetry from distinct hosts.)Tj T* ET Q q 1 0 0 1 68.3622 617.6276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (VII. CONCLUSION AND FUTURE WORK)Tj T* ET Q q 1 0 0 1 68.3622 551.1276 cm .133333 .168627 .211765 rg BT 1.855168 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 51.4 Tm (This paper described a modular framework for classifying operating-system bottlenecks from telemetry and connecting)Tj T* 2.190816 Tw (predictions to structured root-cause guidance. The supplied implementation includes workload generation, run-grouped)Tj T* 1.107756 Tw (preprocessing, an eight-model benchmark suite, saved model artifacts, a Streamlit dashboard and a Gemini-oriented RCA)Tj T* .559786 Tw (component with an offline fallback. The packaged benchmark reports strong results for tree-based models on the controlled)Tj T* 0 Tw (held-out split, while the static-rule baseline performs substantially worse.)Tj T* ET Q q 1 0 0 1 68.3622 496.7276 cm .133333 .168627 .211765 rg BT .412072 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 39.3 Tm (Future work should validate the classifier on real multi-tenant workloads and different hardware, report confidence intervals)Tj T* 1.739668 Tw (across repeated run-grouped splits, measure end-to-end dashboard and RCA latency, evaluate diagnosis correctness and)Tj T* 1.205318 Tw (command safety, explore eBPF-based telemetry, and extend the class set to additional conditions such as network socket)Tj T* 0 Tw (starvation and thread deadlock states.)Tj T* ET Q q 1 0 0 1 68.3622 473.7276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (ACKNOWLEDGMENT)Tj T* ET Q q 1 0 0 1 68.3622 443.5276 cm .133333 .168627 .211765 rg BT 1.225417 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 15.1 Tm (This paper was prepared from the supplied project dossier and the packaged OS Bottleneck Classifier code, datasets and)Tj T* 0 Tw (benchmark artifact. Mentor details were not supplied and are therefore not listed.)Tj T* ET Q q 1 0 0 1 68.3622 420.5276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (REFERENCES)Tj T* ET Q q 1 0 0 1 68.3622 405.2276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 2.2 Tm ([1] B. Gregg, )Tj/F6 8.1 Tf (Systems Performance: Enterprise and the Cloud)Tj/F4 8.1 Tf (, 2nd ed. Addison-Wesley, 2020.)Tj T* ET Q q 1 0 0 1 68.3622 380.6276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 12.5 Tm <5b325d20542e204368656e20616e6420432e20477565737472696e2c20935847426f6f73743a2041205363616c61626c65205472656520426f6f7374696e672053797374656d2c9420696e20>Tj/F6 8.1 Tf (Proc. 22nd ACM SIGKDD Int. Conf. on Knowledge)Tj T* 16 0 Td (Discovery and Data Mining)Tj/F4 8.1 Tf (, 2016.)Tj T* ET Q q 1 0 0 1 68.3622 356.0276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 12.5 Tm <5b335d20472e204b6520657420616c2e2c20934c6967687447424d3a204120486967686c7920456666696369656e74204772616469656e7420426f6f7374696e67204465636973696f6e20547265652c9420696e20>Tj/F6 8.1 Tf (Advances in Neural Information Processing Systems)Tj/F4 8.1 Tf (,)Tj T* 16 0 Td (2017.)Tj T* ET Q q 1 0 0 1 68.3622 341.7276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 2.2 Tm <5b345d204c2e20427265696d616e2c209352616e646f6d20466f72657374732c9420>Tj/F6 8.1 Tf (Machine Learning)Tj/F4 8.1 Tf <2c20766f6c2e2034352c206e6f2e20312c2070702e20359633322c20323030312e>Tj T* ET Q q 1 0 0 1 68.3622 327.4276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 2.2 Tm <5b355d20462e205065647265676f736120657420616c2e2c20935363696b69742d6c6561726e3a204d616368696e65204c6561726e696e6720696e20507974686f6e2c9420>Tj/F6 8.1 Tf (Journal of Machine Learning Research)Tj/F4 8.1 Tf <2c20766f6c2e2031322c2070702e203238323596323833302c20323031312e>Tj T* ET Q q 1 0 0 1 68.3622 302.8276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 12.5 Tm <5b365d20476f6f676c6520446565704d696e642c209347656d696e693a20412046616d696c79206f6620486967686c792043617061626c65204d756c74696d6f64616c204d6f64656c732c9420323032342e2050726f6a65637420646f7373696572207265666572656e63653b206269626c696f677261706869632064657461696c73>Tj T* 16 0 Td (should be verified before formal submission.)Tj T* ET Q q 1 0 0 1 68.3622 259.3276 cm .929412 .952941 .980392 rg .843137 .878431 .917647 RG .5 w -6 -6 470.5512 43.5 re B* Q q 1 0 0 1 68.3622 259.3276 cm .062745 .129412 .227451 rg BT 10.5 TL/F1 8.2 Tf 1 0 0 1 0 23.3 Tm T* T* T* ET Q Q
+
+q
+48 18.70245 499.27558 15.992 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 208.11023 482.27558 16.3324 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 208.17584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 197.67584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 197.67584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 187.17584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+
+q
+BT
+1 0 0 1 293.6378 22 Tm
+/helv 9 Tf .35 .38 .42 RG .35 .38 .42 rg [<34>]TJ
+ET
+Q
+
+
+endstream
+endobj
+21 0 obj
+<<
+/Type /Filespec
+/Subtype (application\057c2pa)
+/AFRelationship /C2PA_Manifest
+/Desc (Content Credentials)
+/F (Content Credentials)
+/EF <<
+/F 22 0 R
+>>
+/UF (Content Credentials)
+>>
+endobj
+22 0 obj
+<<
+/Type /EmbeddedFile
+/Subtype /application#2Fc2pa
+/Filter /FlateDecode
+/Length 10704
+>>
+stream
+xœíz{8”]÷ÿã,§(&”qÏyF(M!g9$I™Á8Çä\!…EEN!ŠNTB’H‘D’$‰¤ƒrLG%ıö=¦çéı½ïû½¾ïõ~ÿ°®Ë5³ö½öÚk­½Ögí}ÂµÃk›¯PŸL.€FHE!§”Ì­üÜÂõOÊdFÊ÷ÏRÛıô`I=&…ÃE"éÜYD*OÔaáqL–;äÆ‚˜ E,‡§NsF=èo‹bèAA¬@Ûß/È‰\æMPƒ'¬lÇ]Ùkš}RL«óıN{f›áï$óİÜ™n¶/İƒ¥ì¡êëkqc3İôÁ :„Íäx¨’±$U´'‹íáÉá1ÁlVÈ*ÿPU¡Áš;êÎöñ1Põó÷c©¢.¿ UO'@OW7$$‚Çøzèâ ‚WS5Õ s<ÑLUK"DÁ	T4KÆà©TKÂÉd4x,?§R±h¡Ph…ˆÁS¨hÂà(8„Å)4"aH,š€£`ğ$4–JÁP¨D4|âÈxîc*OÃ“I‹ÆR€§ ñ<X%–HV`1X<ÆcˆTG«C°:˜F V1"ŒÅQqh/6ó¥ÍcyRXŞ,°8¬ËSJä-B¥Í,JæÙğÃ&ÀsmÄñl&ğ| Ğf|"Í¸H¤ò\Æ£gBğ#$¼Q9Üy!ÄñBŠGÏ„x&äË}N&Òğx*†@À¡‰@8‰'ë)$4‘ x,M€"¨Ãã0™J#àMÄáÁ<yXÌfâa3Hîr3ŸDÚÌ8'GàÍCÏ¨!ñÔRxËh3Ë’xfyfèpÍÄ£M„sä%³%0pÀM@!¸Ö‰E ‚eá„¡à0$à=
+(½Çâ,X"†' ‡`:ÆáM»€…í£`ˆõDÎ‰y‹QÅc8G™ÌuçÇ0LÄ`©ğc
+†DV‘ñÑÆ3È —ÈXO¶ÀƒÍ"ğ€üÁ€DfÀ'0o>ˆ"|€<7uà5Ö?ãµ)/
+Î–x"VÈË:‚ÅL6ñŠuÄSÀ8…hñC<Îb& Bf;òä-ş¢ÏÙGâ®@Å¨xDÄà @°QxàØ¼OÀwÃH :à’„Ó”$xjÄ	ä:ˆ"áÀî„jÇİ¼ŒCX7úT<™†ƒk,wsI`œ
+o6Ì`ë~áÉ2•âˆF‚°Yà@RB$"È ;8	ìğXà=ıÃ)<Ê÷<¬OvœqËûÄƒ(@3E<ã†ƒ¨× H3` €¡ á| Âûö	Ç‹•JuÄA€àñ†á8ÀE„# ,ÀÁ<øì€íÉŒA&Â»»ïXŒøÀÙ	Ò¤„ÁA€aì|ÂYN%ıàÁîBXGêŒ<Î`°ˆ«ÁF/@xI@ 1X*È^<…Pó¯A¸éGœIGO«	\…“ …»‚ƒB…yPc ÂÀzPC0Â %ÁÆãÁ0p¤J$ØäŸ<(1< ñq‹Xg0…Hr$€Ä‚qöç8@€À9°‡8àÁŞóœ¥RASğT <1A„p48F€Û0Ãqs	ã!	\Â\Ÿq3>›ò" pˆW ¬–œ
+ğ t ïx2¼w"0‚aŸ
+2À/
+Ü©À*d­ Éà“X°ğs*èpÙAÌ°Œ[x (Àjn"QhpFPp¤™Øü" =Üáf8îl%…LvU¼¢ZÀ<	àÖ!“iq$PxnEÁógÜÂ“`yü/<hTÇw‰¼Oœ³åŒC8XNI8¼8,(A
+€)X8ÁÂp¼ âyqˆ*”:Ä¼q8pó%àF@á–,ó TàA0 œÅÃİ¬ÀÊ‚ gy÷Ar@b¹]‘·» ÈXO+
+TÜòay"Ñ‚@7€Ù ¼¹nP`àı‹BÛ @.xŸ@@AÿÅmç‡$7:Ã[Uœà³¡(”úÓIÏÍ?ğ7'=÷˜‡	ÆÁÇ·>X(ßƒ7]à>óÍ‡+ÊdÑ9,æV&ÛƒÍ¡ûØùod°ìÃX¡Æ¼3#Ãà0¸‡2?VHÃŸÉ
+ÒåÉqå9@^—Hgû±˜F>şl§/›aÉb²é¾Aşîœz ËÈƒåÇÉgúÑ}Y, É#˜™á˜!,¿PE å$,¤ƒÅÛc)z8¢è 1 *Ñ9îãc4ãÄZ?†Ï6&‹ù¸WÀ‹ÇÒOz'†IçÀo–)ôb…AÜˆä³‚8ô@‚%Ÿ»ËÏƒã©àÚÁµÓVíö¥û±İƒîãáäIÇILX¥‰ÏïX®p/ö;±¦"s'v¤éÄ*ÆPøé:Í¥²±â}Œ :s%Á—À³QcætÎğù»:ÛwfÇøœaOx±ı€]~ÖÚÕ¡ËB}ôØl¦‘Jg¹¹»3upd&¤C Ó±:nxU‡àÎ8"ÁIbp¸º6ƒx³éÿÀÍl?wÿã\<ht‰=>Ûç3¶ú„ª±|ÜÕ¸üå ûóÀów›á¸ÁzlÊÅ"«!å¯uûä9!m$¾FIzà­wP ‹áÈÛVÑˆÄöğ£s¶²B-Yˆ«Y÷ßºåÌóS] /s7ÿaî®ÿ}‡f4jı3O¯C¢Ø|=ÏL™À3×ÄÓ/*¸mÑ4\ì}òÌûu|ÛeÏîÑ«ùÏôşL\Z³vì·û#5JnQN6ÍĞWMåà÷İ©ş~[	+ŸÊıâÉdèqØ›{[Ã0İIZÂ†ò§bÁ1~sMüa f#gb{ì±Á|$E]~QÌx(F Šá÷ÉåçCòñI‰N½–Ø7!…]½ÍÑÚcºçÓ$RL ™aA*‚ü(~qy;;ÃßMÃÙ¡×ÒŒĞëàSˆ•‡æÁ"¢â’@Móğ©ƒDà'‚sùì åùsÀÙ ’HÄBDgÀ’‹ç²gÈäOâXhşŒV)ë –ŸÑZ´u ÍÚÂ‚†U‚gl’å=â‚ÚÌf° ¤ê¯~ ü1HIå‹A"ÙU^²–|io¢Êçİ«qu²šË˜w´-»5òÅ"µûÑ*ùÄ,‹ã2fúc~Ú×^2Ï=Œ5g«;3î¾	=põ8©¿¿ºN R¢Ñ»­W&ÉˆKWl±ÌZp­l'^zõ){ˆl\)ô-#lµXĞz‡ãüéH%™'gœt_†Ÿë-L¯Ÿ›je:îüùidAŠùŸªÛ×´n¥Ôlë8äqiıœS^¾´ì¡}ŸW»]9"TÉu-Ç*å8ÔÛ’÷.M'*ŒÍ«zH9|š©s´).ãóÂk˜¶WŒ¨#2ÂrÉ©¤ãÄ&Ó¦eé×«3‰Êg.Ÿ´óQÊòº%ªL½#¸ö?<ƒô a@â ”Js‘Èï(>Áİl%5ØÒ(Yª”IOZrI|„e¼RË‹Ñ‚B-È_PX[)  „D¢¢şà!¾=:?ºN Gg&ƒ|à”Ñå¥œ::kuÖa1V ¤şs*r<oª?#(àOs¹Y „FIAÀTQ0…Ü5èŠDBšğƒÅ(UıC?êç7õ?Dù,*š‡’}—-eÙ1§9;ğ³±h°¼I¡¢§5’€KÂ!@ñó	ÖB
+‚"?&ó£~Y”_Âÿñ…Z"®a©n„×!2˜dp»¥êĞİY$w¦\¥ÉLp…ÿKQñÇğ!1”4–J¡øvrd§êÁ‰ÊÄ>îj»³W¶|˜jtì»}xé›Ïîò½«hŸBs=•—*$œ½4ºsê®}_åæW>Q~C#Ó6B¯æJbVUò7dLO£EÎä
+ï[»&ª¾*EÅ¡å,—íß>Ô–yD¯zµÌ‚€aû{£B|š.ÆÇv¨¯ÁÚR¹æÆ=NÒBwzFs0¯„¨•xt·Ì(b=Ş°Ôl±¦uJ$¦ıËÂ'˜ğA›PªmÕ.½îøÔ¤|psÊxq½(hOÎÍ®­¯Çä]˜G%ÉºÁé¡ÌWş«îImOAVïçåï«ÀÜİõ]õÈÈå±m.b·{n"n4?“m:/Lğ¥gRîzºÅçZõ°'<Ÿ)|ë<Ğ‰Ñ1gn“rÜœz¨</k/ßıòÚAßw7i¯‚—yÎ/˜xÙœxŞ t„œV z´”Á¢†¯îâ¨ãG7Ò,üfò¦ÿ“÷Ô×6K|µób6a?<q+ŠÄñ÷X4.„l¢Ö§
+Æ<<wñ¤ğÎ’„sRcZÙçBÏ<ÃÛ]j:Ú¾´H‹œguzêÎ§Lß5ıeZBY¨«Ğú<,izvKÊşq^Ê<ëubú´® »G±Òr WHwÁ Ï‡º½ÏîO†ÜŸ[¤İ±>íœ¸˜`\…¬I-—IØ hÅZC1(òËjh3nİQ²ÔÉŒµôyŸåŠ³=×ûW8¶Æ.UÃ…>¥?Áñ:;ğçïÏAXşw1_&S°d<0\ ÇcÿWñ?†ïï°ÌÃ2€ePÍze-•YÍó4+ÃN*öş8Ù•X"}î‚³üZFİteŒ‰ğº«ÊÛšM¨áğ˜òÚ¯_$5
+§İŞ‰oyË¿ÙtÁí äÎ ÃÏ¬üîX…{¤ûÆÌïiŸgBÉì3Uˆ;vœZ°ÁÊõ©•˜IÚÄ¶UƒÊw¨öŒ5ø«tïë´m¼T>‘:©¦ñ ŠOÆfÛŞ€\Ï×¯ªc—Ffi½Ñ,®Õn
+–V0v(Õe¼Ùó^®tuÁÊŞ•$—Õ{í½×›~¿"í_ğàMÒuå‡‘]Õ­ìk¹*ËÔ5ËbÂÚï"si^1~$Ê€àm³\S}¿¼ ˜9…^ÔôÙY¹Mñ°şÑE]efCİ-Â¢¨¦üŞsiËmt§dÖ_¸bscº¼À‚ÿğ&/k·Oµ>±s³P.§"ºï]q•–°n+™Ô´hkB½»°Õ&"XÃóà¤M|e±«%¯ÿá}ÍWfqöÔ¯{\ğ!>®j•¯4.|*–Øİò˜Wë–yíR27>Õõ*…9<({s§q:xa‚•»(;^Gj¤Ş8_ëùÎ}2YëuœäİÜ.ú²ãóõGt¯yÍÄM¹©Ç/°ŠtGÆÒ_Mí¨2}*oëTjÉÎ7'­äƒâÙVÕNÆ¦ì¶–j¶¿h ÷ù‰&K:ì6-çHeœÓ‘Ec÷FühKK¸\æg[†ÁH?ã4RğÖ~ÛÕşa“ùµNi™mÓ‹úr”‘:´~¸&µt{}úK?ô¼şÅ¦¶ê—®Iú—º&\İ:p¹é€Zç¶Ïßt•VÒÃ1É#$¤i÷ï;ùµç ¼?4ŸU¾ª}¶ğD›åqCÙÔç©ÒâìÏ÷ù½$ÛÏ{¶8k˜å¾To¿ #ÿJ‹ÓìUg*Ï¯şô’Ë—u;\şfb…zº?4“¼ëgùMú˜¯Q`ÁãM4»¦#V/”¢ôúŠ`î•8¥u¾z¿¨¦ï}Wì*yZp_jQòIÉà†ı¨”Ÿ}5v8íç×oœ{QWËks¡U÷ç©;ë‡¬Q­›L¿Lm¾“·µV+Ffëıç?³]äÛ)×÷Ün¿¿ÙöùI®µUâ$BÂE‡·|Z¨”™T~aï*Çìdo#-‰iï¬ÄÑÇ—ŞİüîuS¹sôz‚¹üPÊİ%×5,+æ‘}ù-ªç}u#9¢¦©ãá4®ûªşbâÖ«ùÃ¡òÂÛ7ªíX~ßş„ŞåÆ;ñr¼ˆáÑÁ;u§×w³?‹®³OF&F×3r¾¨ŒÜØ©«ıÑ1æıÉfõ‡>®êzW‹–ËK³/f%·p¾'ú-¹RzM£À‘,“KÆ§]?LÅ'*x'J¾ˆô:Ìºtzèò÷ªÊ§™f&Z‡åtø¶Ë–d‰[ŞhjE~À$ZB›VM™tuõØl+»ñ±ºã×{ò*zçe¸‹”ßÛƒù"´}Çá°ÌÕî‘¤İ?÷  û .Í	âØû{³À9L÷Ù ›ÅÈÆıL!¾ÜÙP0ÄáC"±’p2mÙcŠdñ£ø 0CÑq‚b<I)$*7Á’?jãjû—Y(tD¼ßÑ´u¡––[e6>8tÇíäò“Ü¶©êñıü(ôÉz>áp¡»óõúùòóà—X‹ÇRÀÍ—Œ¡R(x"ŞâB"ùDé×t¬*¼ëçÆH¹ƒ&ùÜY\y’şØx)nï¾ıf‚×¦·ğù¬ØZñ×Fñç»ç£açA²0#$>Çî‡6·tvÃÿÿwá‡DáGbâüövFXeháLK”ã	‚AôÚ  ml?Ğ€\t ĞC	$	nªdˆQy,´í?i¯ó‹Kşbœ‹¢ˆÌÿûµ(¾í×¢hÄ›Û7Ïú6şMãXcèI:êöw	MºÖ×¼ø–ÍEùiÙ	º‰o©T—9` ¼Ğ!¦îHÉKîl{ğÀãe«q»ŠD[B^G‹˜§+Ÿ&e¿âCç-­'>9)E~­úIÄ2-£,6¨Ylc²4·lœ­2^§¾aZRV–¸jò{İ|34yÂóä[Š˜#hEsi	cƒÙ=•ækÜ)ùV–·Wm¿cçuŒS–@ªosc‡Ë¹i¥w*b‡Gûô?ìÉÔ’q•è”\Øö¤éËœ[–õM±Îòk—=§-Ø²®Òb´á]Ey×¯âVtÕ¦Î.D)æ¿š´İ
+·$–€ô¦ í&o‘è5ë¬q6ŞÔ½)8kq˜”ç.Û‚ôØmÓ¾wĞÜÎ°=4Œªo&Ox	iïZ;Ø¯#O¸B*ñ¸ZvXùß…«k<Z‘ñ‡6;˜.;[2Rø^½$„ßp×^¦mòÁ}âÔ#æ¥ç¾ æÊï3¯™OÊÃ|`\šé¡Pğ_®d½Ìãv=˜‡wşG»ş¥ÅhØÇäïŠ0¸¹§eEÀ£ë»Ú†ş©“MÈ—6Î·7P£íî¹ÔePYô·~RıUİÚ¨¶¶:ıN-µ}Ô”(c}ÃØqÇIÃå…j“Z¦†Om³UÖ¬­»²Ë*Õ¦)SãˆgŸeëÄÇ…ía§ÇŞÔ©t¯ø¾Aøe@KÂûQ“ÄSÍÃß÷íí7î:ø2«Rù9Áø;½=ôóv
+u`İˆâf÷Á ZDàòçE§“ö(j'/š\ŞábßeÑè¥e¾ó.³E *èxÓ½’¸âo—ÎÇzù]‹×jÍÈË8Ÿc*$N¾ÉÇ°M{¼.Ò_Ù£‰-¼êÁİ_Ï*º&xöT8L£8w—WNáàb£äİRÈ‘çòu¹zû§³×Ù,‹ëíg¶8L.B÷•kÓğ»WE0>m¦jıÊM.äÉµ'tëXÍä—w„ñ	.[ßQ7|WI°ß%‚µ¶TaÈòtA£ÆJ«e—’ïFÖ—ÑNßw…£EóÏ—r˜§‰uõ­Dé%-ó»¦aÑeC½eh…õĞ6¯$¦y~›È½ys=–ùz|æ®\¼ÄqòàzóµPŒÀ€|î<äCíGİn¸)v³[¡´ú­•ôáÂ7Õ
+E¾Ğÿ$¸(‚«1\d~Ş½Bÿöä%qXîÀOàû¯¢ò?ƒ¿„êËÏnå‰ÕĞ¯ôê3İwœ¬Éò•º_	-ÑG½ê¦ö&Œç³„M“÷àv%İ5Ë­}GğÉ­MoÑ>Vø¾9ò‘ä’ŞM–ùcŒ_~ÜPÔüb5ùˆ¢í,Ñ²Å9=:½è¡]Ã€B'Æôm½ÈëC&“>köÊm©øtN×5Ÿhµ›²›}ŒİfÙE3h!øN1R§î\1ô²r_›;2õY¾f,c~EQÈ™±
+ÊËZøÁ’+¥Cš§7Í×Yy¿7Q¿V¾s¥¬ÑÑæC+–mGx¯›Ê¹mS!b²F®_@ÍáËykûôÃï·W}öìW]Ş³÷ -Q®#C;ï¶0·æ¶zfìZÁ=ËÁÊØ»Kn"lŞL<RG3Gå`BOõ:êLvDå-ùøµè¸K³çéÕ¡‰·ƒoCÜ×	œ~ÎV‰5s?ÛH~îDa—\i»aI¶êqI½¶ßfmÅ—ÏJÇö»¬nQ©ÚœÿúªoLõbV¬0Ä‘›¿(ì_:úÏ9úÿ#ü-ÀıŠ€N×Wæê›k½ô+:x$éÈ­ŠGÏw¢N&»ôú1»ÏåI‹@çz…?,¯–7èlè×ı¸¿}PeıJy+‹£§¼;>’M|ìİiñùvÛüı¼\Š‹Züjõ¯qıS5ªóF,6{lúN<mîXI#[_UÌªbŞ’,ÍWÚ‘AúÜßsÑ†vá©ÃÕ¨C·6¬³2ãônj\ã”Yñ:µ¼Ç¤úfÙeŠ<cY˜sÅ‡³«úâùï¾õœBt8Wôªó¥¬}å1İsBô]¡±ôEÛ…;eîî/Ù< «reÃÕÉNó­mÌM/˜×Ík]Cî4nÌ‘»ñíĞ¡WHsaÛî¯Ì÷§¥Ç‰‡Ş~¬Ù¡-ñäB†Í›ú#Ì$ßÓâAÇ–
+.G…´¥ø¯±>Çl6ÚU^LW©~sîs”ÿõ¶ôÒ7RouŠ¶`ºNI¡®¦PËôUÜ­^Šø%”8şö@¬MÀÛÊæ½û­?TèÙ¼ûËÛ—÷Ş>9Zvìã¢PÍèñ §¤Ô=ó´]Æƒİ×½‚›Šeš-”\SÃ:Ÿ»U½ÁÜ2“¦â[ö0öéÔøƒ[ôshIs½²ëß.Òİ$8½¼³KºFl³ÒÖ9_pßr£¯¾dxQÏùöÌ*.pÏûq[dœ²ğÕKÚDA©”‚åŞ^ÙUßj—e_ Oİ¹¶{àĞBCa¯‡ÏèÙcCwoÖ¯ô§ ~	¸•‡Àsm–û$ìWçÇ/Kşdôu{Ì°âÿU&ş‰ÎÿEÛşÙÛŸ)¯Ûe«Îæô/8³­ÈQ±ëÔù‹^)›„}H©ÕQÿ|­vAÉ–šºŒ–°ŒŸŒiRF]ú¼‚Ï—eWÚ]½>¹àİµº¡WÛ‡«_­xŸyoäD.=YÂâÛ¶‚Òó'Keµ7è¾O¸a$#1½Dù¾/±eø
+qËÊ¢İ¶5G¤¿ÕêÊ—òöz„yÄx÷BÖEóæÕº½=[†(9Å6G6ªÑ¾R¾¯Š\®—g«»¸É´ûİ&pt<2/¤EŞ?šşnÅ5¿ÁvÅó'„IÏ½q_§CŠ\3]<Á°Hb}ŸİlÔºkw[ÖjŠòÛŞÉœwQSêyF¯ÂŞ9Ğqı»"¯íÊc/é*OX·$LEÖÅqÆEóï<IEØQ»³}~¬fD)/1ªgŒÏÏ.y-ˆu/s÷¿š»ã°„ä¢V£Ï®ãI¯[.×>Ào
+mkÓÀŞµƒ””»½®×¦Ş=Û#ÉŒûøUØ*>øƒáØ÷”eGC0b{ÒË³Eøõ¾½_ Ò˜¼ÙùõÓ9"Ú—”÷îRDMl”Ó_&Å_r0?Û¨bç½9Ò®•Öv[o¹:ªyj$nÿV—¥ûöÇ_,ËXÓ%0AOö1¶_.ïÒTS²ëÖyµ-Ø8šÿĞş’–İ¹+»Ÿø’–3›ø.|eÓ¼òİN&ßªÓ©ù½]Eª9×6Z,kwˆùøGşşÿ@úßùÿé>GOŸğ¡OßÚ£Ô¹1VéDgMå‰Mâ›Ö6Wæi¶èdW:MÇ&èöà¥R¦•ï2î}Ôõ’½ø×ã¨>[„]­]üúŞ±‡ï·ËI.™Úõ}QQİ™ŞÇŠ©§ZÚ `y½ÔìÖSüs¨0Qœ>ßñsƒu_¿±1J¤ø¼xj8ªû˜iOr•®q[S~oQY”ş>ù¡î¬N³âö¬Ş÷œvÔ®2ßœ"¾üĞÃŒ=ó6´šŒSÎÔ—îäç0ïÕ®[w>b©w¿;í3Ÿ¼øÒùË5¾Ÿ+ÊùÄjÎ}ÿæòÕC­«Ÿ¥Ÿ5õu(^T¸%yúvçö{{ĞYïŠBÛºWbnEˆ¹¸iÕ}u|%&”$]2üâñı€iã;Œ"æ[ı×%…Ìj×k»…u”K[.ß/~¸îJ@âì¯˜k¢Û´ÕViÓ\†óbè+în)ı”öúyóuı©3!å=è:‹×	$/èî¬ß‘ÂÌ¾Û{çÈ·„RóK´íí¯Ïîù¦ğHçØUÄhm™‰£Z¤©ÜA	+It„›p]“«ÃÛ‚¶jëıÇâjdÑÆa5‡øÎßB/Í>¼7~‰ƒ€ûº1ùÌ«Šœe___vö˜X½Ëªwy4˜a[÷‰:ç|»<¹&L(@¹ß‹ÿùH’Ó·5×ìïÛÅo ùh	^­Í)äD%6†ß =N·èÔÿêYõ¿ãøåmKnr1´àg‹ğcçüé¤ûÇ3V…N?+t¹yÿ&	ã·>óWO4wC‚ŞoÅŞ˜åÛk´]²†¢ü¢€O}Š¾E_ƒ¢«Qè«Ö—/°ˆ&yÄûõûN£©
+e_Û˜bÖ–c‹±j8í,Øş4n¿;*•ŸÅiMàä&]R]’çºÅ?ßu÷şöG½7u:Bjøºc“îÖšó~…ùä>‚Ğ”ÍÑÁÆ#Æx¿OÇgëB·×Ú	}'j½:„6ô…dÆò­›»¦´È[İPÈšK±s«Rıv@;¡©ë8å¶’İHÕr‡Îèó¬ÈëŸo‰òİ™Šƒ¾jEÊ‹ûşû“‡^åëÏêõ^s…ÖV‰	‰O~69qcmHÈ—z•Ñ’Éè2gÌ"¹õj¦yÃ’Õ¦ÅlİÌi¹í‘T”MÚ‹;%êúû}±N¥#¯Géš.ó>LpÈ¶|©BgüV£Î½Tu|1™‡°swZ4ì;·…şğ¨zo†ZÙê;&ÏçúdİsÜ<Y^›`Zò¦ÚÊwêu<äÚ·ÿMkhbÄ3mş³aqÎÓâb…C=!ò±ì[²{‚ü.¤élŒ8‘ŸójR–ĞIxæaë8¡ÿåÕ…ÛNFnÕL—õ¸½,åq`‚Ÿ8÷Â¶ï;æ}”ÿá°b—›¯ïÜoİ¬@GºOP'übş½Aè!#t_	ÒZèøz‹ûVîkt$*Fè2ºE¿ÎˆopêThÒ—_\½î­´”xa?¡rœtf^'âp8ˆŠ';CÑéPôah-H?m	~¾`ãeûbÈv®v]øóOQêÄ·Û^ö‹*üşÿeDâokäJÿ¢r‡HÎyğå•ÿ°]Å•ÁÂ2Ş´<5ş§ÚO>”Jª«\xá—{ïNÌy6Ğ1Ğ²Hçwocn±äbVéi¯È[óÊĞ&ÿìÍ‚uvN¥oßöËp—qÖGœ•Ö1‰	Sm{™şLSbB/œ]cî¥ +‘r*¼"úÓ“ç[
+_ğI=˜R–s't¯}üëé61Å¡‡
+éo$ø8szƒNZyë±M«œú×ş4—°CÃánb!©í*·×è2[«ä ~íKõŠQìåe2hœ+91ºúÊ–±½/b-eÆd’/8'tŞÖĞ]E'T¼]T¼6F„”ıç_û²ºã@áÛàèã¶’wp=rk5?ˆ_}º¢÷xã¢h”Pá™®k‡.ÅéVØ@uoâ×½ö@U¬üìÊ;[@Å%!®GZ›âDÉ¸9_ûñÅy¬Ú©İ#ãûIá‹'ŞÖŸ¾&UJólxz³½İã­sù[“j½¾¤’òŞu8wTdòo¿}Ñ ÊÔ¿ ‡ê{Oá¨’ÏRñ3Íµªùw®[¾Y¾D•¥ùí(ÖÎèp{É›3ƒ’Ïb.¸I,NÆlÌÀ‚û€øÓBš÷g³+Ú–6L›_\ág0 QõŸÿ©„%`y¿¡ùÁœ!Ë?£¯4$9£Uø‡V¬6÷¿fÀÕßÙbM³³A¯cøû1YÿôI¾MªÑK3ó^±Ì‡9Kœô‡×M]9¤„k‘­o°ék»šÕà¨–öpßèáHÇQšÉŒÚ”Ò¡ªBüw_¶ì]ºÂñ:r#¥æ›T–e^®dÍWgŒÎ-Uß²_tPàs˜JÃ}:qã>TšÓ±‹û\º7œh£_<yßş‘Oü'ù“•7ºü¾a—öJˆ`h|zrâMúQu3î¦ñå©|ËÑÜÌ3^uŠ+(Zá‚]÷7U•]TÊvĞn'Ë;w“TœUZÑ»Z+qĞæ¤4Z8J,,bñİGÔ‰œ5™!UB¡"¹'¬"V&a¿½QõŒ“‹º³è¹µó„ô»xÉó­êÈ%Å¹¨¦ìHQo·İª8ähgv{_§1!87fihRÖ	Ùç^Z!9áDqóæ×U*ëÙEŸÊèÔN-PÉ¬`µ/Ì
+JÔÜ~›¸Ó™€<‘×ŞHq¢Ş6Ä)©Äö‘eÃ:¡ûdÅĞ—ƒ-)¯ı´çøCC8
+¦X¿]çÅÌ¡9:ŠıwÇ#ù 	 ø@šşæŠÈ/çìß¡îŸåBQ¿;V_	:á{ÜÓfHêm®ÏÃ&ÍØlÃ"İÑ+¹C§›ë”+‘{* Å¦¾ïæô_Í³\Ú®ÍÚ²º§|ÿi‡ŸìVOÛ¨¾lø¬¹Šùû+"_rJŸ––~KZX–,îõ„18t¡S¬£ñí«D‰¾>Ÿ"ùßT‚¥ê–jæ{oaCšËÊö(–	0ô¼¼bÇX/.³vh}mzws¢ĞÎ–qGï¾œ=*¤qbRùpPåH¹|Ñêši½k%«“ó5ÚE®s±)n”ë)şúÉ·TKh‰”lî¡>9æî}'öêa9õË›õí–öl¥xãğ÷=_6]»8õığÛ…¯°Ì|¬L¦‹¶
+ñ4jµZºº°!=®ˆ8‘$è~JıªWÌ9y´w/çxÈÖÉÂëK•3,~!»ö²Ğw§l ‰ÍWN†ªçîû®íBd=ğ“¯ïÒhUÜşıú©›çÊ¦´Vùh•uR›çuj«??E$v4»6I§§·Æ$ÊŒˆ9Ñ«èï‡7:=:djÁyy·#ò"rbPÍ|òT¸¢1|ù£HùHXêÑ˜K¯0v{§mĞ<Tåtßÿˆå1[üÁµ•6Šw/Um‰Mµ8rL-´»îvÒÍ#†>_6#È}"‚‹ÒSÂ>Õ^hM9){zÙz£™„§+à_ÑnX²1K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³4K³ô¯ÒÇH-z[âtÛÖ;Jûœ»Ãvõ|ˆéÜÕ=ßA·*§¾{ÒjÈz]ğ–L€Æ’ä¤€–üÄ,&z:›Î\Qİrjëòõ7¶uµ]Ñó|äCnòNéñ&Ñî/ˆ>ÁFG£mûœ˜!·Ÿ)_ë£é·¨-<¹ópe·Ç½5ôfvšs£Ê¼ÂÏœ9.¿G^·ß¬İ%‹µC‚z÷ªy¿DÁ¦ì}ëN¿H`<h;÷hÓ£µQĞ‰ÉS'hÅ7µcMø%Z\—ÖTXå9X)sb³IFJœ”(ê æÍdåJ|ş}ÆX¾úD„Ğ}·à€9÷_n½ÜŸf‰7^7d«|ıÿfM4
+endstream
+endobj
+23 0 obj
+<<
+/Length 6412
+>>
+stream
+q q .843137 .878431 .917647 RG .5 w 62.3622 799.3701 m 532.9134 799.3701 l S .321569 .392157 .478431 rg BT 9 TL/F1 7.5 Tf 1 0 0 1 62.3622 809.2913 Tm (OS ANALYTICS & BOTTLENECK CLASSIFIER)Tj T* ET 62.3622 39.68504 m 532.9134 39.68504 l S BT 9.6 TL/F1 8 Tf 1 0 0 1 62.3622 24.09449 Tm T* ET BT 1 0 0 1 528.4654 24.09449 Tm T* ET Q q 1 0 0 1 68.3622 761.5276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (VI. DISCUSSION)Tj T* ET Q q 1 0 0 1 68.3622 707.1276 cm .133333 .168627 .211765 rg BT 2.540634 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 39.3 Tm (The results support the project's design choice to keep numeric classification local and use the language model for)Tj T* .173527 Tw (explanation. The classical tree ensembles are competitive on the controlled tabular dataset, while the 1D CNN does not show)Tj T* 1.002638 Tw (a benefit in the reported test metrics. The static heuristic illustrates how fixed rules can underperform when the workload)Tj T* 0 Tw (signatures are more complex than the small set of manually selected thresholds.)Tj T* ET Q q 1 0 0 1 68.3622 640.6276 cm .133333 .168627 .211765 rg BT .817605 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 51.4 Tm (There are important validity limits. First, the sample population is a controlled synthetic dataset rather than a collection of)Tj T* .860468 Tw (independent production incidents. Second, six held-out runs provide limited evidence about variation across environments.)Tj T* .142105 Tw (Third, inference latency depends on hardware, software versions, batch shape and measurement method. Fourth, LLM output)Tj T* 1.217606 Tw (quality, API availability and remediation safety require separate evaluation from classifier accuracy. Finally, the reported)Tj T* 0 Tw (near-perfect test results should be replicated with newly generated runs and, ideally, real telemetry from distinct hosts.)Tj T* ET Q q 1 0 0 1 68.3622 617.6276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (VII. CONCLUSION AND FUTURE WORK)Tj T* ET Q q 1 0 0 1 68.3622 551.1276 cm .133333 .168627 .211765 rg BT 1.855168 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 51.4 Tm (This paper described a modular framework for classifying operating-system bottlenecks from telemetry and connecting)Tj T* 2.190816 Tw (predictions to structured root-cause guidance. The supplied implementation includes workload generation, run-grouped)Tj T* 1.107756 Tw (preprocessing, an eight-model benchmark suite, saved model artifacts, a Streamlit dashboard and a Gemini-oriented RCA)Tj T* .559786 Tw (component with an offline fallback. The packaged benchmark reports strong results for tree-based models on the controlled)Tj T* 0 Tw (held-out split, while the static-rule baseline performs substantially worse.)Tj T* ET Q q 1 0 0 1 68.3622 496.7276 cm .133333 .168627 .211765 rg BT .412072 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 39.3 Tm (Future work should validate the classifier on real multi-tenant workloads and different hardware, report confidence intervals)Tj T* 1.739668 Tw (across repeated run-grouped splits, measure end-to-end dashboard and RCA latency, evaluate diagnosis correctness and)Tj T* 1.205318 Tw (command safety, explore eBPF-based telemetry, and extend the class set to additional conditions such as network socket)Tj T* 0 Tw (starvation and thread deadlock states.)Tj T* ET Q q 1 0 0 1 68.3622 473.7276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (ACKNOWLEDGMENT)Tj T* ET Q q 1 0 0 1 68.3622 443.5276 cm .133333 .168627 .211765 rg BT 1.225417 Tw 12.1 TL/F4 9.1 Tf 1 0 0 1 0 15.1 Tm (This paper was prepared from the supplied project dossier and the packaged OS Bottleneck Classifier code, datasets and)Tj T* 0 Tw (benchmark artifact. Mentor details were not supplied and are therefore not listed.)Tj T* ET Q q 1 0 0 1 68.3622 420.5276 cm .062745 .129412 .227451 rg BT 15 TL/F2 13 Tf 1 0 0 1 0 2 Tm (REFERENCES)Tj T* ET Q q 1 0 0 1 68.3622 405.2276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 2.2 Tm ([1] B. Gregg, )Tj/F6 8.1 Tf (Systems Performance: Enterprise and the Cloud)Tj/F4 8.1 Tf (, 2nd ed. Addison-Wesley, 2020.)Tj T* ET Q q 1 0 0 1 68.3622 380.6276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 12.5 Tm <5b325d20542e204368656e20616e6420432e20477565737472696e2c20935847426f6f73743a2041205363616c61626c65205472656520426f6f7374696e672053797374656d2c9420696e20>Tj/F6 8.1 Tf (Proc. 22nd ACM SIGKDD Int. Conf. on Knowledge)Tj T* 16 0 Td (Discovery and Data Mining)Tj/F4 8.1 Tf (, 2016.)Tj T* ET Q q 1 0 0 1 68.3622 356.0276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 12.5 Tm <5b335d20472e204b6520657420616c2e2c20934c6967687447424d3a204120486967686c7920456666696369656e74204772616469656e7420426f6f7374696e67204465636973696f6e20547265652c9420696e20>Tj/F6 8.1 Tf (Advances in Neural Information Processing Systems)Tj/F4 8.1 Tf (,)Tj T* 16 0 Td (2017.)Tj T* ET Q q 1 0 0 1 68.3622 341.7276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 2.2 Tm <5b345d204c2e20427265696d616e2c209352616e646f6d20466f72657374732c9420>Tj/F6 8.1 Tf (Machine Learning)Tj/F4 8.1 Tf <2c20766f6c2e2034352c206e6f2e20312c2070702e20359633322c20323030312e>Tj T* ET Q q 1 0 0 1 68.3622 327.4276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 2.2 Tm <5b355d20462e205065647265676f736120657420616c2e2c20935363696b69742d6c6561726e3a204d616368696e65204c6561726e696e6720696e20507974686f6e2c9420>Tj/F6 8.1 Tf (Journal of Machine Learning Research)Tj/F4 8.1 Tf <2c20766f6c2e2031322c2070702e203238323596323833302c20323031312e>Tj T* ET Q q 1 0 0 1 68.3622 302.8276 cm .133333 .168627 .211765 rg BT 10.3 TL/F4 8.1 Tf 1 0 0 1 0 12.5 Tm <5b365d20476f6f676c6520446565704d696e642c209347656d696e693a20412046616d696c79206f6620486967686c792043617061626c65204d756c74696d6f64616c204d6f64656c732c9420323032342e2050726f6a65637420646f7373696572207265666572656e63653b206269626c696f677261706869632064657461696c73>Tj T* 16 0 Td (should be verified before formal submission.)Tj T* ET Q  Q
+
+q
+48 18.70245 499.27558 15.992 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 208.11023 482.27558 16.3324 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 208.17584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 197.67584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 197.67584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+q
+58 187.17584 482.27558 16.26678 re
+h
+1 1 1 RG 1 1 1 rg B
+Q
+
+
+q
+BT
+1 0 0 1 293.6378 22 Tm
+/helv 9 Tf .35 .38 .42 RG .35 .38 .42 rg [<34>]TJ
+ET
+Q
+
+
+endstream
+endobj
+xref
+0 24
+0000000000 65535 f 
+0000000015 00000 n 
+0000000179 00000 n 
+0000000259 00000 n 
+0000000474 00000 n 
+0000006998 00000 n 
+0000007105 00000 n 
+0000007217 00000 n 
+0000007332 00000 n 
+0000007441 00000 n 
+0000007538 00000 n 
+0000007784 00000 n 
+0000011717 00000 n 
+0000011848 00000 n 
+0000011998 00000 n 
+0000012107 00000 n 
+0000012364 00000 n 
+0000015713 00000 n 
+0000015863 00000 n 
+0000015974 00000 n 
+0000016202 00000 n 
+0000022893 00000 n 
+0000023092 00000 n 
+0000033920 00000 n 
+trailer
+<<
+/Size 24
+/Root 1 0 R
+/ID [ <b76e20181323f31990f56be8c10497dd> <43a89c847ed2935ac00b891fe9abc301> ]
+>>
+startxref
+40385
+%%EOF
