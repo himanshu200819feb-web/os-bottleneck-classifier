@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OS Anomaly Analytics</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='8' fill='%23182127'/%3E%3Cpath d='M6 13h20' stroke='%23748a86' stroke-width='1.2' stroke-dasharray='2 2'/%3E%3Cpath d='M6 21h4l2-3 2 3h3l2.5-13 2.5 13H26' fill='none' stroke='%23e3ebe8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='19.5' cy='8' r='2.6' fill='%23e66767'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&display=swap">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#" data-go="overview" aria-label="OS Anomaly Analytics, overview">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="1" y="1" width="30" height="30" rx="8" class="logo-bg"/>
+        <path d="M6 13h20" class="logo-threshold"/>
+        <path d="M6 21h4l2-3 2 3h3l2.5-13 2.5 13H26" class="logo-signal"/>
+        <circle cx="19.5" cy="8" r="2.6" class="logo-dot"/>
+      </svg>
+      <span class="brand-text">OS Anomaly Analytics<small>Anomaly detection and root-cause analysis for servers</small></span>
+    </a>
+    <nav class="tabs" aria-label="Sections">
+      <button data-view="overview" class="active">Overview</button>
+      <button data-view="models">Models</button>
+      <button data-view="fleet">Fleet</button>
+      <button data-view="explorer">Explorer</button>
+    </nav>
+    <div class="top-right">
+      <span id="gemini-pill" class="status"><span class="dot"></span><span>Gemini</span></span>
+      <span id="run-box"></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="no-runs" class="empty-state" hidden>
+    <h2>No results yet</h2>
+    <p>Download the dataset and train the models first:</p>
+    <p><code>python -m src.pipeline all</code></p>
+  </div>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section id="view-overview" class="view active">
+    <header class="page-head">
+      <h1>Which model catches server anomalies best?</h1>
+      <p id="ov-intro"></p>
+    </header>
+    <div class="kpi-strip" id="kpis"></div>
+    <div class="grid ov-main">
+      <section class="panel">
+        <div class="panel-head center">
+          <h2>Model ranking</h2>
+          <div class="seg even" id="rank-metric" role="group" aria-label="Ranking metric"></div>
+        </div>
+        <p class="sub" id="rank-sub"></p>
+        <div class="legend kind-legend"></div>
+        <div id="ranking"></div>
+      </section>
+      <section class="panel">
+        <h2>What the results say</h2>
+        <ul class="findings" id="findings"></ul>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============ MODELS ============ -->
+  <section id="view-models" class="view">
+    <header class="page-head">
+      <h1>Model comparison</h1>
+      <p>Cross-validated on servers each model never saw. Click a header to sort, or a row to inspect that model.</p>
+    </header>
+    <div class="toolbar">
+      <div class="seg" id="model-filter" role="group" aria-label="Filter models"></div>
+      <label class="switch"><input type="checkbox" id="more-cols"><span>More metrics</span></label>
+    </div>
+    <section class="panel flush"><div class="table-wrap"><table id="lb-table"></table></div></section>
+    <div class="grid two" style="margin-top:16px">
+      <section class="panel">
+        <h2 id="pr-title">Precision–recall curve</h2>
+        <p class="sub">The selected model against the others in grey. The dot marks its tuned alarm threshold.</p>
+        <div class="chart-box"><canvas id="pr-chart" aria-label="Precision-recall curves"></canvas></div>
+      </section>
+      <section class="panel">
+        <h2 id="cm-title">Confusion matrix</h2>
+        <p class="sub">Every held-out minute, summed over the 4 folds</p>
+        <div id="cm"></div>
+        <details class="fold" id="fold-box"><summary>Results per fold</summary><div id="fold-table"></div></details>
+      </section>
+    </div>
+    <section class="panel" style="margin-top:16px">
+      <div class="panel-head">
+        <div><h2>F1 on every server</h2><p class="sub">Click a cell to open that server and model in the Explorer</p></div>
+        <div class="scale-legend" id="hm-legend"></div>
+      </div>
+      <div id="heatmap" class="heatmap"></div>
+    </section>
+  </section>
+
+  <!-- ============ FLEET ============ -->
+  <section id="view-fleet" class="view">
+    <header class="page-head">
+      <h1>Fleet</h1>
+      <p><span id="fleet-count">Every server</span> on one timeline. Click any hour to open it in the Explorer.</p>
+    </header>
+    <div class="toolbar">
+      <label class="field">Model <select id="fleet-model"></select></label>
+      <div class="legend">
+        <span><i class="swatch" style="background:#2a78d6"></i>Share of the hour in alarm</span>
+        <span><i class="swatch tick"></i>Labelled anomaly</span>
+      </div>
+    </div>
+    <section class="panel"><canvas id="fleet-canvas" aria-label="Alarm timeline for every server"></canvas></section>
+    <section class="panel flush" style="margin-top:16px"><div class="table-wrap"><table id="fleet-table"></table></div></section>
+  </section>
+
+  <!-- ============ EXPLORER ============ -->
+  <section id="view-explorer" class="view">
+    <header class="page-head">
+      <h1>Incident explorer</h1>
+      <p>Pick a server and a model, then analyse an incident. Click the score chart to zoom in.</p>
+    </header>
+    <div class="toolbar">
+      <label class="field">Server <select id="ex-machine"></select></label>
+      <label class="field">Model <select id="ex-model"></select></label>
+      <p class="inline-stats" id="ex-stats"></p>
+      <div class="zoom-note" id="zoom-note" hidden></div>
+    </div>
+    <div class="grid side">
+      <div class="grid" id="ex-left">
+        <section class="panel">
+          <div class="panel-head">
+            <div><h2>Anomaly score</h2><p class="sub">Score as a multiple of the alarm threshold. Above 1× raises an alarm.</p></div>
+            <div class="legend">
+              <span><i class="swatch line" id="score-swatch"></i>Score</span>
+              <span><i class="swatch dash"></i>Threshold</span>
+              <span><i class="swatch" style="background:var(--truth)"></i>Labelled anomaly</span>
+            </div>
+          </div>
+          <div class="chart-box"><canvas id="score-chart" aria-label="Anomaly score over time"></canvas></div>
+          <label class="switch" style="margin-top:10px"><input type="checkbox" id="show-agree"><span>Compare all 10 models</span></label>
+          <canvas id="agree-canvas" hidden aria-label="When each model raises an alarm"></canvas>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <div><h2>Raw metrics</h2><p class="sub">The metrics that move most during labelled anomalies. Pick up to 3.</p></div>
+          </div>
+          <div class="chips" id="metric-chips"></div>
+          <div class="chart-box short"><canvas id="metric-chart" aria-label="Raw metrics over time"></canvas></div>
+        </section>
+        <section class="panel flush">
+          <div class="panel-pad"><h2>Detected incidents</h2><p class="sub">Alarms less than 5 minutes apart are merged into one incident</p></div>
+          <div class="table-wrap scroll-y"><table id="inc-table"></table></div>
+        </section>
+      </div>
+      <aside class="panel rca" id="rca" aria-live="polite"></aside>
+    </div>
+  </section>
+</main>
+
+<div id="tip" role="tooltip"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

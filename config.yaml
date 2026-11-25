@@ -1,167 +1,83 @@
-# ==============================================================================
-# OS Analytics & Bottleneck Classifier - Leakage Safe Configuration
-# ==============================================================================
+# Single source of truth for the whole project.
+# Every run copies this file into runs/<run_id>/config.yaml.
 
-project:
-  name: "OS-Analytics-and-Bottleneck-Classifier"
-  title: "A Modular Telemetry-Driven Framework for OS Bottleneck Classification"
-  version: "1.0.0"
-  random_seed: 42
+seed: 42
 
-paths:
-  data_dir: "data"
-  raw_data_dir: "data/raw"
-  processed_data_dir: "data/processed"
-  artifacts_dir: "artifacts"
-  raw_csv: "data/raw/telemetry_raw.csv"
-  train_csv: "data/processed/train.csv"
-  test_csv: "data/processed/test.csv"
-  scaler_path: "artifacts/cnn_preprocessor.joblib"
-  label_encoder_path: "artifacts/label_encoder.joblib"
-  feature_names_path: "artifacts/feature_names.joblib"
-  split_manifest_path: "artifacts/split_manifest.csv"
-  model_metrics_csv: "artifacts/model_comparison.csv"
+data:
+  source_url: https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/master/ServerMachineDataset
+  raw_dir: data/raw/SMD
+  # "all" or an explicit list such as [machine-1-1, machine-1-2]
+  machines: all
 
-telemetry:
-  sampling_interval_sec: 1.0
-  runs_per_class: 8
-  duration_per_run_sec: 90
-  warmup_drop_sec: 10
-  cooldown_drop_sec: 5
-  settle_time_sec: 15
-  csv_flush_interval_rows: 30
-  randomize_run_order: true
-  intensity_profiles: ["low", "medium", "high"]
-  classes:
-    - "Normal"
-    - "CPU_Bound"
-    - "Memory_Pressure"
-    - "IO_Contention"
-
-workloads:
-  cpu:
-    worker_fraction:
-      low: 0.40
-      medium: 0.70
-      high: 1.00
-  memory:
-    available_fraction:
-      low: 0.40
-      medium: 0.55
-      high: 0.70
-    max_alloc_gb: 8.0
-    reserve_available_gb: 1.5
-    page_size_bytes: 4096
-    recheck_interval_sec: 5.0
-  io:
-    chunk_size_mb: 4
-    writes_per_cycle:
-      low: 2
-      medium: 6
-      high: 12
-    buffer_size_bytes: 1048576
-    cycle_sleep_sec:
-      low: 0.08
-      medium: 0.03
-      high: 0.005
-
-preprocessing:
-  test_size: 0.20
-  group_column: "run_id"
-  minimum_runs_per_class: 6
-  drop_constant_features: true
-  metadata_columns:
-    - "timestamp"
-    - "capture_session_id"
-    - "run_id"
-    - "machine_id"
-    - "workload_intensity"
-    - "label"
-
-models:
-  baseline_heuristic:
-    name: "Static_Rule_Baseline"
-    thresholds:
-      cpu_bound_user_pct: 75.0
-      io_contention_iowait_pct: 20.0
-      io_contention_write_kb_per_sec: 30000.0
-      memory_pressure_used_pct: 85.0
-      memory_pressure_swap_out_kb_per_sec: 1024.0
-
-  logistic_regression:
-    name: "Logistic_Regression"
-    param_grid:
-      C: [0.1, 1.0, 10.0]
-      max_iter: [1000]
-      solver: ["lbfgs"]
-    requires_scaling: true
-
-  random_forest:
-    name: "Random_Forest"
-    param_grid:
-      n_estimators: [50, 100, 200]
-      max_depth: [6, 10, 15]
-    requires_scaling: false
-
-  xgboost:
-    name: "XGBoost"
-    param_grid:
-      n_estimators: [50, 100]
-      max_depth: [3, 6]
-      learning_rate: [0.05, 0.1]
-    requires_scaling: false
-
-  lightgbm:
-    name: "LightGBM"
-    param_grid:
-      n_estimators: [50, 100]
-      max_depth: [3, 6]
-      learning_rate: [0.05, 0.1]
-      num_leaves: [15, 31]
-    requires_scaling: false
-
-  svm_rbf:
-    name: "SVM_RBF"
-    param_grid:
-      C: [0.1, 1.0, 10.0]
-      gamma: ["scale", "auto"]
-    probability: true
-    requires_scaling: true
-
-  mlp_deep_net:
-    name: "MLP_Deep_Net"
-    param_grid:
-      hidden_layer_sizes: [[64, 32], [128, 64, 32]]
-      alpha: [0.0001, 0.001]
-      learning_rate_init: [0.001, 0.01]
-    max_iter: 500
-    requires_scaling: true
-
-  cnn_1d:
-    name: "1D_CNN_Net"
-    max_epochs: 40
-    early_stopping_patience: 6
-    batch_size: 32
-    learning_rate: 0.002
+features:
+  window: 10            # rolling window (minutes) for mean/std features
+  long_window: 60       # window for the slow-drift feature
+  extras: []            # optional: diff (sudden jumps), long_dev (slow drift)
 
 evaluation:
-  cv_folds: 5
-  scoring_metric: "f1_macro"
-  metrics:
-    - "Accuracy"
-    - "Precision_Macro"
-    - "Recall_Macro"
-    - "F1_Macro"
-    - "Inference_Latency_ms"
+  n_folds: 4            # GroupKFold over machines
+  calibration_fraction: 0.25   # share of training machines held out to tune thresholds
+  train_stride: 5       # keep every 5th normal row when fitting (all anomaly rows kept)
+  max_fit_rows: 60000   # cap on rows used to fit any model
+  event_gap: 5          # merge alarms closer than this many minutes into one incident
+  # How supervised models get their alarm threshold:
+  #   holdout  - fit on 75% of training machines, tune the threshold on the other 25%
+  #   crossfit - 3-way cross-fitting: tune on all training machines, then fit on all of them
+  # crossfit won on all 28 servers: average supervised F1 0.294 -> 0.311, PR-AUC up for all 6.
+  calibration: crossfit
+  crossfit_parts: 3
 
-llm:
-  provider: "gemini"
-  model_name: "gemini-3.8-flash"
+models:
+  # ---- supervised: learn from labelled anomalies on other machines
+  logistic_regression:
+    enabled: true
+    params: {C: 1.0, max_iter: 2000}
+  random_forest:
+    enabled: true
+    params: {n_estimators: 150, max_depth: 14, min_samples_leaf: 3}
+  xgboost:
+    enabled: true
+    params: {n_estimators: 200, max_depth: 6, learning_rate: 0.1, subsample: 0.8, colsample_bytree: 0.8}
+  lightgbm:
+    enabled: true
+    params: {n_estimators: 300, num_leaves: 31, learning_rate: 0.05, subsample: 0.8, subsample_freq: 1, colsample_bytree: 0.8, min_child_samples: 20}
+  knn:
+    enabled: true
+    max_fit_rows: 15000
+    params: {n_neighbors: 15, weights: distance}
+  mlp:                  # neural network
+    enabled: true
+    params: {hidden_layer_sizes: [128, 64], alpha: 0.001, batch_size: 256, learning_rate_init: 0.001, max_iter: 200}
+  # ---- unsupervised: learn each machine's own normal behaviour, no labels
+  isolation_forest:
+    enabled: true
+    params: {n_estimators: 200, max_samples: 512}
+  one_class_svm:
+    enabled: true
+    max_fit_rows: 8000
+    params: {nu: 0.05, gamma: scale}
+  local_outlier_factor:
+    enabled: true
+    max_fit_rows: 15000
+    params: {n_neighbors: 30}
+  autoencoder:          # neural network
+    enabled: true
+    max_fit_rows: 12000
+    params: {hidden: [64, 16, 64], alpha: 0.0001, max_iter: 80}
+
+runs:
+  dir: runs
+
+rca:
+  # Tried in order; if every model fails, the offline rule-based report is used.
+  # Override with GEMINI_MODELS=a,b,c in .env.
+  # gemini-3.1-flash-lite is a fast last resort: the bigger models often time out under high demand.
+  models: [gemini-4-hydrogen, gemini-3.8-flash, gemini-3.6-flash, gemini-3.1-flash-lite]
+  timeout_seconds: 40     # per model
   temperature: 0.2
-  max_output_tokens: 10000
+  top_k_metrics: 6
 
 dashboard:
-  title: "OS Analytics & Bottleneck Classifier"
-  refresh_rate_sec: 1.0
-  telemetry_history_window: 30
-  default_model: "Random_Forest"
+  host: 127.0.0.1
+  port: 8000
+  max_points: 1500     # points per series sent to the browser

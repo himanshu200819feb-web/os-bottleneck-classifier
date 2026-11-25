@@ -1,0 +1,236 @@
+{
+  "evidence": {
+    "machine": "machine-1-1",
+    "start_minute": 15847,
+    "end_minute": 15857,
+    "duration_minutes": 11,
+    "detector": "Random Forest",
+    "peak_score_vs_threshold": 1.4,
+    "models_agreeing": [
+      "Logistic Regression",
+      "Random Forest",
+      "XGBoost",
+      "LightGBM",
+      "K-Nearest Neighbours",
+      "One-Class SVM",
+      "Local Outlier Factor",
+      "Autoencoder (NN)",
+      "Neural Net (MLP)"
+    ],
+    "agreement": "9/10",
+    "agreement_detail": [
+      {
+        "model": "Logistic Regression",
+        "share_of_window_alarmed": 1.0
+      },
+      {
+        "model": "Random Forest",
+        "share_of_window_alarmed": 1.0
+      },
+      {
+        "model": "XGBoost",
+        "share_of_window_alarmed": 1.0
+      },
+      {
+        "model": "LightGBM",
+        "share_of_window_alarmed": 1.0
+      },
+      {
+        "model": "K-Nearest Neighbours",
+        "share_of_window_alarmed": 1.0
+      },
+      {
+        "model": "One-Class SVM",
+        "share_of_window_alarmed": 1.0
+      },
+      {
+        "model": "Local Outlier Factor",
+        "share_of_window_alarmed": 1.0
+      },
+      {
+        "model": "Autoencoder (NN)",
+        "share_of_window_alarmed": 0.64
+      },
+      {
+        "model": "Neural Net (MLP)",
+        "share_of_window_alarmed": 0.45
+      }
+    ],
+    "metrics_deviating_more_than_3sd": 2,
+    "top_metrics": [
+      {
+        "metric": "m09",
+        "z_score": 4.45,
+        "peak_abs_z": 31.39,
+        "direction": "up",
+        "baseline_mean": 0.0203,
+        "incident_mean": 0.0649,
+        "incident_peak": 0.3342,
+        "before_mean_30min": 0.0107,
+        "onset_minute": 0
+      },
+      {
+        "metric": "m14",
+        "z_score": 2.58,
+        "peak_abs_z": 22.89,
+        "direction": "up",
+        "baseline_mean": 0.0512,
+        "incident_mean": 0.0914,
+        "incident_peak": 0.4086,
+        "before_mean_30min": 0.0286,
+        "onset_minute": 0
+      },
+      {
+        "metric": "m13",
+        "z_score": 2.01,
+        "peak_abs_z": 14.14,
+        "direction": "up",
+        "baseline_mean": 0.0266,
+        "incident_mean": 0.0598,
+        "incident_peak": 0.2603,
+        "before_mean_30min": 0.0091,
+        "onset_minute": 0
+      },
+      {
+        "metric": "m15",
+        "z_score": 1.68,
+        "peak_abs_z": 9.35,
+        "direction": "up",
+        "baseline_mean": 0.0896,
+        "incident_mean": 0.1518,
+        "incident_peak": 0.4368,
+        "before_mean_30min": 0.0588,
+        "onset_minute": 0
+      },
+      {
+        "metric": "m01",
+        "z_score": 5.92,
+        "peak_abs_z": 7.59,
+        "direction": "up",
+        "baseline_mean": 0.0642,
+        "incident_mean": 0.3998,
+        "incident_peak": 0.4946,
+        "before_mean_30min": 0.0509,
+        "onset_minute": 2
+      },
+      {
+        "metric": "m12",
+        "z_score": 0.57,
+        "peak_abs_z": 4.03,
+        "direction": "up",
+        "baseline_mean": 0.087,
+        "incident_mean": 0.113,
+        "incident_peak": 0.2703,
+        "before_mean_30min": 0.0405,
+        "onset_minute": 0
+      }
+    ],
+    "first_movers": [
+      {
+        "metric": "m09",
+        "onset_minute": 0
+      },
+      {
+        "metric": "m14",
+        "onset_minute": 0
+      },
+      {
+        "metric": "m13",
+        "onset_minute": 0
+      },
+      {
+        "metric": "m15",
+        "onset_minute": 0
+      }
+    ],
+    "co_moving_groups": [
+      [
+        "m01",
+        "m09",
+        "m12",
+        "m13",
+        "m14",
+        "m15"
+      ]
+    ],
+    "shape": "intermittent bursts",
+    "similar_incidents": [
+      {
+        "start_minute": 19366,
+        "duration_minutes": 114,
+        "similarity": 0.94,
+        "when": "after"
+      },
+      {
+        "start_minute": 20785,
+        "duration_minutes": 24,
+        "similarity": 0.94,
+        "when": "after"
+      },
+      {
+        "start_minute": 18167,
+        "duration_minutes": 1,
+        "similarity": 0.92,
+        "when": "after"
+      }
+    ]
+  },
+  "ground_truth": {
+    "labelled_anomaly_share": 0.818,
+    "interpretation_metrics": [
+      "m01",
+      "m09",
+      "m10",
+      "m12",
+      "m13",
+      "m14",
+      "m15"
+    ]
+  },
+  "source": "gemini",
+  "model": "gemini-3.8-flash",
+  "error": null,
+  "attempts": [
+    {
+      "model": "gemini-4-hydrogen",
+      "ok": false,
+      "seconds": 37.3,
+      "error": "ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}"
+    },
+    {
+      "model": "gemini-3.8-flash",
+      "ok": true,
+      "seconds": 14.7,
+      "error": null
+    }
+  ],
+  "report": {
+    "severity": "Medium",
+    "headline": "Transient burst across subsystem metrics m09, m14, and m01 lasting 11 minutes on machine-1-1.",
+    "summary": "An 11-minute multi-metric anomaly triggered alarms across 9 of 10 detectors starting at minute 15847. Initial spikes in metrics m09, m14, m13, and m15 immediately triggered the incident, followed at minute 2 by a sustained elevation in m01. The pattern resolved automatically after 11 minutes but recurred in longer subsequent incidents.",
+    "likely_cause": "Transient subsystem overload or burst batch job driving high localized activity in m09/m14, inducing follow-on load on m01.",
+    "pattern": "intermittent bursts",
+    "timeline": [
+      "Minute 0 (15847): Simultaneous sharp spikes in first-movers m09, m13, m14, and m15 trigger alarms across 7 detectors at 100% window coverage.",
+      "Minute 2 (15849): Metric m01 crosses 3 SD, shifting from baseline mean 0.0642 to an incident mean of 0.3998.",
+      "Minutes 3-10 (15850-15857): High correlated co-movement across group [m01, m09, m12, m13, m14, m15] peaks with m09 reaching peak_abs_z of 31.39.",
+      "Minute 11 (15858): All metrics drop back below threshold and alarms clear."
+    ],
+    "evidence": [
+      "m09 surged to an extreme peak_abs_z of 31.39 and incident peak of 0.3342 versus baseline mean of 0.0203.",
+      "m01 exhibited a sustained surge with mean z_score of 5.92 and incident peak of 0.4946 (baseline 0.0642).",
+      "m14 spiked instantly at minute 0 with peak_abs_z of 22.89 and peak value of 0.4086.",
+      "Strong detector consensus with 9/10 models alarming and 7 maintaining 100% window detection."
+    ],
+    "investigation_steps": [
+      "Run 'journalctl --since \"15847 minutes ago\" -n 200' to identify scheduled tasks, cron triggers, or service restarts coinciding with the window.",
+      "Inspect historical sar/sysstat CPU and memory accounting using 'sar -u -f /var/log/sa/saXX' and 'sar -r -f /var/log/sa/saXX' around the incident window.",
+      "Check disk and block device load history using 'sar -d -f /var/log/sa/saXX' to verify if m09/m14 correlate with I/O bursts.",
+      "Check kernel ring buffer using 'dmesg -T' for driver warnings, memory throttling, or hardware stalls during the timestamp range."
+    ],
+    "confidence": "High",
+    "caveats": "Because metrics m01-m38 are anonymized, exact physical resources (CPU, memory, disk, network) cannot be definitively separated without correlating to host-level logs."
+  },
+  "created_at": "2026-11-18T13:04:19",
+  "cached": false
+}

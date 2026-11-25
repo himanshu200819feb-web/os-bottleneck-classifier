@@ -1,0 +1,422 @@
+[
+  {
+    "model": "random_forest",
+    "label": "Random Forest",
+    "kind": "supervised",
+    "family": "trees",
+    "neural": false,
+    "precision": 0.29738702875477274,
+    "precision_std": 0.12809481793177033,
+    "recall": 0.4662215133731217,
+    "recall_std": 0.17117355315322083,
+    "f1": 0.35705478656818435,
+    "f1_std": 0.13909145263941944,
+    "pa_f1": 0.6303171950647242,
+    "pa_f1_std": 0.09964297488709978,
+    "pr_auc": 0.3375086256638951,
+    "pr_auc_std": 0.11613145434749032,
+    "roc_auc": 0.8513518445914242,
+    "roc_auc_std": 0.08233311633840469,
+    "event_recall": 0.815347966771492,
+    "event_recall_std": 0.11939097182261778,
+    "detection_delay_min": 1.5,
+    "detection_delay_min_std": 1.118033988749895,
+    "false_alarms_per_day": 4.024502352909252,
+    "false_alarms_per_day_std": 1.0866096047232243,
+    "fit_seconds": 7.923624175000441,
+    "fit_seconds_std": 0.40381965005440495,
+    "latency_ms_per_1k": 4.723707988853624,
+    "latency_ms_per_1k_std": 1.193046868787568,
+    "confusion": [
+      [
+        645274,
+        33702
+      ],
+      [
+        16275,
+        13169
+      ]
+    ],
+    "rank": 1,
+    "paper_f1": 0.47410482501627726,
+    "paper_f1_std": 0.21868063541458554
+  },
+  {
+    "model": "logistic_regression",
+    "label": "Logistic Regression",
+    "kind": "supervised",
+    "family": "linear",
+    "neural": false,
+    "precision": 0.45911824624278164,
+    "precision_std": 0.24078346157883168,
+    "recall": 0.3139653879639228,
+    "recall_std": 0.1339290354127344,
+    "f1": 0.3537697243129946,
+    "f1_std": 0.15933140151324024,
+    "pa_f1": 0.7992011206056823,
+    "pa_f1_std": 0.1307243119080908,
+    "pr_auc": 0.374205705704991,
+    "pr_auc_std": 0.14688156612482656,
+    "roc_auc": 0.7830092071096648,
+    "roc_auc_std": 0.06425444125183305,
+    "event_recall": 0.6284083882522515,
+    "event_recall_std": 0.12203891621152177,
+    "detection_delay_min": 3.0,
+    "detection_delay_min_std": 1.224744871391589,
+    "false_alarms_per_day": 2.471508058658208,
+    "false_alarms_per_day_std": 1.7359037030607005,
+    "fit_seconds": 1.4286159499970381,
+    "fit_seconds_std": 0.1694196641342289,
+    "latency_ms_per_1k": 0.37643427560057857,
+    "latency_ms_per_1k_std": 0.0468370561885487,
+    "confusion": [
+      [
+        667642,
+        11334
+      ],
+      [
+        21147,
+        8297
+      ]
+    ],
+    "rank": 2,
+    "paper_f1": 0.5076058403991646,
+    "paper_f1_std": 0.2157627828646876
+  },
+  {
+    "model": "knn",
+    "label": "K-Nearest Neighbours",
+    "kind": "supervised",
+    "family": "neighbours",
+    "neural": false,
+    "precision": 0.325784975133825,
+    "precision_std": 0.15010775205782748,
+    "recall": 0.3221358493263228,
+    "recall_std": 0.17852285249674002,
+    "f1": 0.3190810501217177,
+    "f1_std": 0.16169117647874662,
+    "pa_f1": 0.7169025283174661,
+    "pa_f1_std": 0.0959210912059155,
+    "pr_auc": 0.24383457606437559,
+    "pr_auc_std": 0.1617334437931042,
+    "roc_auc": 0.7790272367974582,
+    "roc_auc_std": 0.0962324640756684,
+    "event_recall": 0.8089673544483692,
+    "event_recall_std": 0.0652714601673802,
+    "detection_delay_min": 2.125,
+    "detection_delay_min_std": 1.5155444566227676,
+    "false_alarms_per_day": 3.309481349720233,
+    "false_alarms_per_day_std": 0.7811783698214966,
+    "fit_seconds": 0.04178707499886514,
+    "fit_seconds_std": 0.01207907264134013,
+    "latency_ms_per_1k": 47.20749951011821,
+    "latency_ms_per_1k_std": 4.0191467300085915,
+    "confusion": [
+      [
+        660640,
+        18336
+      ],
+      [
+        19180,
+        10264
+      ]
+    ],
+    "rank": 3,
+    "paper_f1": 0.4094971656042788,
+    "paper_f1_std": 0.2474206390725302
+  },
+  {
+    "model": "xgboost",
+    "label": "XGBoost",
+    "kind": "supervised",
+    "family": "trees",
+    "neural": false,
+    "precision": 0.3758751861395104,
+    "precision_std": 0.21726239740183548,
+    "recall": 0.3504781082456467,
+    "recall_std": 0.24025884183727858,
+    "f1": 0.3063921711486288,
+    "f1_std": 0.13087823634332335,
+    "pa_f1": 0.6807924125364646,
+    "pa_f1_std": 0.10426566346582623,
+    "pr_auc": 0.341641434926089,
+    "pr_auc_std": 0.12612195778741872,
+    "roc_auc": 0.8290841973361234,
+    "roc_auc_std": 0.09795863063246274,
+    "event_recall": 0.6796322138382476,
+    "event_recall_std": 0.14580661010534623,
+    "detection_delay_min": 2.375,
+    "detection_delay_min_std": 1.3863170633011772,
+    "false_alarms_per_day": 3.687236444959957,
+    "false_alarms_per_day_std": 2.5725948622904977,
+    "fit_seconds": 3.9795502000015404,
+    "fit_seconds_std": 0.6739360202129648,
+    "latency_ms_per_1k": 0.8701932949727197,
+    "latency_ms_per_1k_std": 0.17118091550487263,
+    "confusion": [
+      [
+        655705,
+        23271
+      ],
+      [
+        18355,
+        11089
+      ]
+    ],
+    "rank": 4,
+    "paper_f1": 0.490050653628158,
+    "paper_f1_std": 0.20323777193868361
+  },
+  {
+    "model": "lightgbm",
+    "label": "LightGBM",
+    "kind": "supervised",
+    "family": "trees",
+    "neural": false,
+    "precision": 0.3863457301322111,
+    "precision_std": 0.19060452290407287,
+    "recall": 0.35790633089428203,
+    "recall_std": 0.2965624208459846,
+    "f1": 0.2992650979871551,
+    "f1_std": 0.11301290857116349,
+    "pa_f1": 0.6990634900619954,
+    "pa_f1_std": 0.14620428939230512,
+    "pr_auc": 0.3686887714981014,
+    "pr_auc_std": 0.15242854467840417,
+    "roc_auc": 0.8392301992805777,
+    "roc_auc_std": 0.09168138410159402,
+    "event_recall": 0.714031197427579,
+    "event_recall_std": 0.2118093332704108,
+    "detection_delay_min": 2.375,
+    "detection_delay_min_std": 1.3863170633011772,
+    "false_alarms_per_day": 2.456070038815562,
+    "false_alarms_per_day_std": 1.7959515660733358,
+    "fit_seconds": 3.9397326249963953,
+    "fit_seconds_std": 0.5992490331752995,
+    "latency_ms_per_1k": 3.984683018720535,
+    "latency_ms_per_1k_std": 0.11330624651778073,
+    "confusion": [
+      [
+        648858,
+        30118
+      ],
+      [
+        17600,
+        11844
+      ]
+    ],
+    "rank": 5,
+    "paper_f1": 0.5120772239552458,
+    "paper_f1_std": 0.20157291083203693
+  },
+  {
+    "model": "mlp",
+    "label": "Neural Net (MLP)",
+    "kind": "supervised",
+    "family": "neural",
+    "neural": true,
+    "precision": 0.17836741682920318,
+    "precision_std": 0.1565450071458305,
+    "recall": 0.4359294787538314,
+    "recall_std": 0.19590359662331652,
+    "f1": 0.22765623950961236,
+    "f1_std": 0.1685857646145777,
+    "pa_f1": 0.4515865398090419,
+    "pa_f1_std": 0.19895014157338775,
+    "pr_auc": 0.2176840970715617,
+    "pr_auc_std": 0.1611761087734237,
+    "roc_auc": 0.737673492573881,
+    "roc_auc_std": 0.09629400007598325,
+    "event_recall": 0.7934231173053491,
+    "event_recall_std": 0.11508548445100554,
+    "detection_delay_min": 0.75,
+    "detection_delay_min_std": 0.4330127018922193,
+    "false_alarms_per_day": 9.529946614507955,
+    "false_alarms_per_day_std": 4.733712007941075,
+    "fit_seconds": 47.25092192499869,
+    "fit_seconds_std": 17.993211360168967,
+    "latency_ms_per_1k": 0.8891038910260509,
+    "latency_ms_per_1k_std": 0.18366432156524634,
+    "confusion": [
+      [
+        604258,
+        74718
+      ],
+      [
+        17768,
+        11676
+      ]
+    ],
+    "rank": 6,
+    "paper_f1": 0.41472667381623174,
+    "paper_f1_std": 0.2474428277336307
+  },
+  {
+    "model": "autoencoder",
+    "label": "Autoencoder (NN)",
+    "kind": "unsupervised",
+    "family": "neural",
+    "neural": true,
+    "precision": 0.39258010803255267,
+    "precision_std": 0.34111886524608204,
+    "recall": 0.19673272104730544,
+    "recall_std": 0.05873704489275949,
+    "f1": 0.21671055619990437,
+    "f1_std": 0.13111663537899118,
+    "pa_f1": 0.4967524741293833,
+    "pa_f1_std": 0.27504981289587277,
+    "pr_auc": 0.28850867574602146,
+    "pr_auc_std": 0.213929542618597,
+    "roc_auc": 0.735719760414413,
+    "roc_auc_std": 0.120216729783751,
+    "event_recall": 0.39098045397579834,
+    "event_recall_std": 0.07679320622386439,
+    "detection_delay_min": 1.75,
+    "detection_delay_min_std": 2.0463381929681126,
+    "false_alarms_per_day": 0.8705465515534694,
+    "false_alarms_per_day_std": 0.48036164463413716,
+    "fit_seconds": 4.350363899999918,
+    "fit_seconds_std": 0.0,
+    "latency_ms_per_1k": 1.9005803053947907,
+    "latency_ms_per_1k_std": 1.9229626863835638e-16,
+    "confusion": [
+      [
+        642969,
+        36007
+      ],
+      [
+        22983,
+        6461
+      ]
+    ],
+    "rank": 7,
+    "paper_f1": 0.5287510358169526,
+    "paper_f1_std": 0.22968190407359113
+  },
+  {
+    "model": "local_outlier_factor",
+    "label": "Local Outlier Factor",
+    "kind": "unsupervised",
+    "family": "neighbours",
+    "neural": false,
+    "precision": 0.13527096987235962,
+    "precision_std": 0.07653450372533432,
+    "recall": 0.28195818857275473,
+    "recall_std": 0.106000073253355,
+    "f1": 0.17456302013353067,
+    "f1_std": 0.08330595053434073,
+    "pa_f1": 0.32966531559147716,
+    "pa_f1_std": 0.15469134944336915,
+    "pr_auc": 0.17317139461862507,
+    "pr_auc_std": 0.09463699875034048,
+    "roc_auc": 0.6466301624018961,
+    "roc_auc_std": 0.12503268882079413,
+    "event_recall": 0.3827881421469808,
+    "event_recall_std": 0.056887093845867036,
+    "detection_delay_min": 1.625,
+    "detection_delay_min_std": 1.9803724397193574,
+    "false_alarms_per_day": 2.9884605447344486,
+    "false_alarms_per_day_std": 1.963870571464542,
+    "fit_seconds": 0.43353949285717264,
+    "fit_seconds_std": 0.0,
+    "latency_ms_per_1k": 29.126292453716285,
+    "latency_ms_per_1k_std": 1.7763568394002505e-15,
+    "confusion": [
+      [
+        622360,
+        56616
+      ],
+      [
+        21012,
+        8432
+      ]
+    ],
+    "rank": 8,
+    "paper_f1": 0.44485403181700034,
+    "paper_f1_std": 0.2409145976178934
+  },
+  {
+    "model": "isolation_forest",
+    "label": "Isolation Forest",
+    "kind": "unsupervised",
+    "family": "trees",
+    "neural": false,
+    "precision": 0.3011376622568218,
+    "precision_std": 0.28467568290516687,
+    "recall": 0.17975838787705553,
+    "recall_std": 0.05884509816263698,
+    "f1": 0.17234495241900527,
+    "f1_std": 0.07296723922036974,
+    "pa_f1": 0.4553216948568998,
+    "pa_f1_std": 0.196351940561524,
+    "pr_auc": 0.2351015785268863,
+    "pr_auc_std": 0.1085120302123904,
+    "roc_auc": 0.7747818005848153,
+    "roc_auc_std": 0.07339252177802466,
+    "event_recall": 0.39294552700398944,
+    "event_recall_std": 0.05905563167211859,
+    "detection_delay_min": 2.75,
+    "detection_delay_min_std": 1.479019945774904,
+    "false_alarms_per_day": 2.864115230273124,
+    "false_alarms_per_day_std": 1.4340189427770218,
+    "fit_seconds": 0.22098278214564612,
+    "fit_seconds_std": 0.0,
+    "latency_ms_per_1k": 5.310564354432291,
+    "latency_ms_per_1k_std": 7.691850745534255e-16,
+    "confusion": [
+      [
+        654134,
+        24842
+      ],
+      [
+        24431,
+        5013
+      ]
+    ],
+    "rank": 9,
+    "paper_f1": 0.45606727740717695,
+    "paper_f1_std": 0.18898860145579272
+  },
+  {
+    "model": "one_class_svm",
+    "label": "One-Class SVM",
+    "kind": "unsupervised",
+    "family": "kernel",
+    "neural": false,
+    "precision": 0.07971430416275992,
+    "precision_std": 0.035354829889974085,
+    "recall": 0.5185067488896727,
+    "recall_std": 0.27732752651049486,
+    "f1": 0.13491175416838028,
+    "f1_std": 0.061897892080960595,
+    "pa_f1": 0.1945686362435436,
+    "pa_f1_std": 0.05322903471857981,
+    "pr_auc": 0.1290764576761189,
+    "pr_auc_std": 0.06273824410819194,
+    "roc_auc": 0.6893076671935627,
+    "roc_auc_std": 0.07733258693374731,
+    "event_recall": 0.6761600998438991,
+    "event_recall_std": 0.09684039165052385,
+    "detection_delay_min": 0.25,
+    "detection_delay_min_std": 0.4330127018922193,
+    "false_alarms_per_day": 6.207934213842499,
+    "false_alarms_per_day_std": 2.28659570541713,
+    "fit_seconds": 0.35833359285607,
+    "fit_seconds_std": 0.0,
+    "latency_ms_per_1k": 49.89864755376729,
+    "latency_ms_per_1k_std": 3.552713678800501e-15,
+    "confusion": [
+      [
+        513297,
+        165679
+      ],
+      [
+        13559,
+        15885
+      ]
+    ],
+    "rank": 10,
+    "paper_f1": 0.4202230310399508,
+    "paper_f1_std": 0.2484822232729419
+  }
+]

@@ -1,0 +1,104 @@
+seed: 42
+data:
+  source_url: https://raw.githubusercontent.com/NetManAIOps/OmniAnomaly/master/ServerMachineDataset
+  raw_dir: data/raw/SMD
+  machines: all
+features:
+  window: 10
+  long_window: 60
+  extras: []
+evaluation:
+  n_folds: 4
+  calibration_fraction: 0.25
+  train_stride: 5
+  max_fit_rows: 60000
+  event_gap: 5
+  calibration: crossfit
+  crossfit_parts: 3
+models:
+  logistic_regression:
+    enabled: true
+    params:
+      C: 1.0
+      max_iter: 2000
+  random_forest:
+    enabled: true
+    params:
+      n_estimators: 150
+      max_depth: 14
+      min_samples_leaf: 3
+  xgboost:
+    enabled: true
+    params:
+      n_estimators: 200
+      max_depth: 6
+      learning_rate: 0.1
+      subsample: 0.8
+      colsample_bytree: 0.8
+  lightgbm:
+    enabled: true
+    params:
+      n_estimators: 300
+      num_leaves: 31
+      learning_rate: 0.05
+      subsample: 0.8
+      subsample_freq: 1
+      colsample_bytree: 0.8
+      min_child_samples: 20
+  knn:
+    enabled: true
+    max_fit_rows: 15000
+    params:
+      n_neighbors: 15
+      weights: distance
+  mlp:
+    enabled: true
+    params:
+      hidden_layer_sizes:
+      - 128
+      - 64
+      alpha: 0.001
+      batch_size: 256
+      learning_rate_init: 0.001
+      max_iter: 200
+  isolation_forest:
+    enabled: true
+    params:
+      n_estimators: 200
+      max_samples: 512
+  one_class_svm:
+    enabled: true
+    max_fit_rows: 8000
+    params:
+      nu: 0.05
+      gamma: scale
+  local_outlier_factor:
+    enabled: true
+    max_fit_rows: 15000
+    params:
+      n_neighbors: 30
+  autoencoder:
+    enabled: true
+    max_fit_rows: 12000
+    params:
+      hidden:
+      - 64
+      - 16
+      - 64
+      alpha: 0.0001
+      max_iter: 80
+runs:
+  dir: runs
+rca:
+  models:
+  - gemini-4-hydrogen
+  - gemini-3.8-flash
+  - gemini-3.6-flash
+  - gemini-3.1-flash-lite
+  timeout_seconds: 40
+  temperature: 0.2
+  top_k_metrics: 6
+dashboard:
+  host: 127.0.0.1
+  port: 8000
+  max_points: 1500
